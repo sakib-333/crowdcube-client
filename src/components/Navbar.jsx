@@ -9,14 +9,24 @@ const Navbar = () => {
   const navItems = (
     <>
       <li>
-        <NavLink to={"/"}>Test</NavLink>
+        <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <NavLink to={"/test2"}>Test2</NavLink>
+        <NavLink to={"/allCampaign"}>All Campaign</NavLink>
       </li>
-      <li>
-        <NavLink to={"/test3"}>Test3</NavLink>
-      </li>
+      {user ? (
+        <>
+          <li>
+            <NavLink to={"/addCampaign"}>Add New Campaign</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/myCampaign"}>My Campaign</NavLink>
+          </li>
+          <li>
+            <NavLink to={"/myDonations"}>My Donations</NavLink>
+          </li>
+        </>
+      ) : null}
     </>
   );
   return (
@@ -47,7 +57,9 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex items-center">
-          <h1>PH B10 A10</h1>
+          <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-white">
+            Crowdcube
+          </h1>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -55,23 +67,29 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <div className="flex items-center gap-1">
+          <div className="relative group">
             <img
               className="w-12 h-12 rounded-full"
+              title={user?.displayName}
               src={user?.photoURL}
               alt="photo"
             />
             <button
-              className="btn btn-outline"
+              className="btn btn- hidden group-hover:block absolute w-max right-0 top-12"
               onClick={() => handleSignoutUser(signoutUser)}
             >
               Log out
             </button>
           </div>
         ) : (
-          <Link to={"/login"} className="btn btn-outline">
-            Log in
-          </Link>
+          <div className="flex items-center gap-1">
+            <Link to={"/login"} className="btn btn-outline">
+              Log in
+            </Link>
+            <Link to={"/register"} className="btn btn-outline">
+              Register
+            </Link>
+          </div>
         )}
       </div>
     </div>
