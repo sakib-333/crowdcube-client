@@ -75,7 +75,7 @@ const Navbar = () => {
               alt="photo"
             />
             <button
-              className="btn btn- hidden group-hover:block absolute w-max right-0 top-12"
+              className="btn z-10 hidden group-hover:block absolute w-max right-0 top-12"
               onClick={() => handleSignoutUser(signoutUser)}
             >
               Log out
