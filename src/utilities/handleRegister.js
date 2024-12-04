@@ -7,7 +7,8 @@ export const handleRegister = (
   setPassErrMsg,
   signupUser,
   updateUserProfile,
-  navigate
+  navigate,
+  setLoading
 ) => {
   e.preventDefault();
 
@@ -27,7 +28,10 @@ export const handleRegister = (
           navigate("/");
         });
       })
-      .catch((err) => toast.error(`${err}`));
+      .catch((err) => {
+        setLoading(false);
+        toast.error(`${err}`);
+      });
     setPassErrMsg(null);
   } else {
     setPassErrMsg(

@@ -8,16 +8,16 @@ import { handleLogin } from "../utilities/handleLogin";
 
 const LoginPage = () => {
   const [view, setView] = useState(false);
-  const { signinUser, signinWithGoogle } = useContext(AuthContext);
+  const { signinUser, signinWithGoogle, setLoading } = useContext(AuthContext);
   const navigate = useNavigate();
 
   return (
     <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl mx-auto my-4 md:my-8 lg:my-12">
       <form
         className="card-body"
-        onSubmit={(e) => handleLogin(e, signinUser, navigate)}
+        onSubmit={(e) => handleLogin(e, signinUser, navigate, setLoading)}
       >
-        <h1 className="text-center text-xl font-bold text-blue-500">Login</h1>
+        <h1 className="text-center text-xl font-bold text-primary">Login</h1>
         <div className="form-control">
           <label className="label">
             <span className="label-text font-bold">Email</span>

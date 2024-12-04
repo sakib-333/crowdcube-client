@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 
-export const handleLogin = (e, signinUser, navigate) => {
+export const handleLogin = (e, signinUser, navigate, setLoading) => {
   e.preventDefault();
 
   const email = e.target.email.value;
@@ -12,5 +12,8 @@ export const handleLogin = (e, signinUser, navigate) => {
       toast.success("Welcome back");
       navigate("/");
     })
-    .catch((err) => toast.error(`${err}`));
+    .catch((err) => {
+      setLoading(false);
+      toast.error(`${err}`);
+    });
 };

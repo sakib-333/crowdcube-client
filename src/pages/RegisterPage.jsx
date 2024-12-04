@@ -9,7 +9,7 @@ import { AuthContext } from "../provider/AuthProvider";
 const RegisterPage = () => {
   const [view, setView] = useState(false);
   const [passErrMsg, setPassErrMsg] = useState(null);
-  const { signupUser, signinWithGoogle, updateUserProfile } =
+  const { signupUser, signinWithGoogle, updateUserProfile, setLoading } =
     useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -23,13 +23,12 @@ const RegisterPage = () => {
             setPassErrMsg,
             signupUser,
             updateUserProfile,
-            navigate
+            navigate,
+            setLoading
           )
         }
       >
-        <h1 className="text-center text-xl font-bold text-blue-500">
-          Register
-        </h1>
+        <h1 className="text-center text-xl font-bold text-primary">Register</h1>
         <div className="form-control">
           <label className="label">
             <span className="label-text font-bold">Name</span>
@@ -84,7 +83,7 @@ const RegisterPage = () => {
           >
             {view ? <FaEye /> : <FaEyeSlash />}
           </button>
-          {passErrMsg && <p className="text-red-700 p-1">{passErrMsg}</p>}
+          {passErrMsg && <p className="text-[#FF0000] p-1">{passErrMsg}</p>}
         </div>
         <div className="form-control mt-4">
           <button className="btn btn-primary">Register</button>
