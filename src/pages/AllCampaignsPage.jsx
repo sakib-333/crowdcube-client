@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const AllCampaigns = () => {
+const AllCampaignsPage = () => {
   return (
     <div className="bg-white overflow-x-auto">
       <table className="table table-zebra">
@@ -33,7 +34,9 @@ const AllCampaigns = () => {
             <td>Idea</td>
             <td>20/12/2024</td>
             <th>
-              <button className="btn btn-ghost btn-xs">details</button>
+              <Link to={`/campaign/1`} className="btn btn-ghost btn-xs">
+                Details
+              </Link>
             </th>
           </tr>
           {/* row 2 */}
@@ -53,7 +56,9 @@ const AllCampaigns = () => {
             <td>Idea</td>
             <td>20/12/2024</td>
             <th>
-              <button className="btn btn-ghost btn-xs">details</button>
+              <Link to={`/campaign/2`} className="btn btn-ghost btn-xs">
+                Details
+              </Link>
             </th>
           </tr>
 
@@ -74,7 +79,9 @@ const AllCampaigns = () => {
             <td>Idea</td>
             <td>20/12/2024</td>
             <th>
-              <button className="btn btn-ghost btn-xs">details</button>
+              <Link to={`/campaign/3`} className="btn btn-ghost btn-xs">
+                Details
+              </Link>
             </th>
           </tr>
 
@@ -95,7 +102,9 @@ const AllCampaigns = () => {
             <td>Idea</td>
             <td>20/12/2024</td>
             <th>
-              <button className="btn btn-ghost btn-xs">details</button>
+              <Link to={`/campaign/4`} className="btn btn-ghost btn-xs">
+                Details
+              </Link>
             </th>
           </tr>
         </tbody>
@@ -104,4 +113,4 @@ const AllCampaigns = () => {
   );
 };
 
-export default AllCampaigns;
+export default AllCampaignsPage;

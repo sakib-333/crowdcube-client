@@ -7,9 +7,10 @@ import RegisterPage from "../pages/RegisterPage";
 import AddCampaignPage from "../pages/AddCampaignPage";
 import PrivateRoute from "../components/PrivateRoute";
 import CampaignDetailsPage from "../pages/CampaignDetailsPage";
-import AllCampaigns from "../pages/AllCampaigns";
 import MyCampaignPage from "../pages/MyCampaignPage";
 import UpdateCampaignPage from "../pages/UpdateCampaignPage";
+import MyDonationsPage from "../pages/MyDonationsPage";
+import AllCampaignsPage from "../pages/AllCampaignsPage";
 
 export const router = createBrowserRouter([
   {
@@ -31,7 +32,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/allCampaign",
-        element: <AllCampaigns />,
+        element: <AllCampaignsPage />,
       },
       {
         path: "/myCampaign",
@@ -46,6 +47,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddCampaignPage />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/myDonations",
+        element: (
+          <PrivateRoute>
+            <MyDonationsPage />
           </PrivateRoute>
         ),
       },

@@ -10,7 +10,7 @@ const AddCampaignPage = () => {
   return (
     <div className="w-5/6 mx-auto my-4">
       <Link to={"/"} className="btn bg-white text-primary border-0 my-4">
-        <IoMdArrowRoundBack /> <span>Back to home</span>
+        <IoMdArrowRoundBack /> <span>Back</span>
       </Link>
       <div className="bg-[#F4F3F0] p-4 md:p-8 lg:p-12 space-y-4 rounded-md">
         <h1 className="text-2xl md:text-3xl lg:text-4xl text-primary font-bold text-center">
