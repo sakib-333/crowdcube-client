@@ -30,8 +30,8 @@ const Slider = () => {
 
   return (
     <section>
-      <div className="mx-auto px-4">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-primary md-4 md:mb-6 lg:mb-8">
+      <div className="mx-auto">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-primary mb-4 md:mb-6 lg:mb-8">
           Our Initiatives
         </h2>
         <Swiper

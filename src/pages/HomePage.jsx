@@ -6,7 +6,7 @@ import Blog from "../components/Blog";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="space-y-8 md:space-y-16 lg:space-y-20">
       <Slider />
       <RunningCampaigns />
       <Blog />

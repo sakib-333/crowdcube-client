@@ -31,7 +31,7 @@ const Blog = () => {
     },
   ];
   return (
-    <div className="mt-8 md:mt-12 lg:mt-16">
+    <div>
       <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-primary mb-4 md:mb-6 lg:mb-8">
         Blogs
       </h2>
