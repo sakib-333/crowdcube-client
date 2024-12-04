@@ -4,6 +4,7 @@ import NotFoundPage from "../pages/NotFoundPage";
 import HomePage from "../pages/HomePage";
 import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
+import AddCampaignPage from "../pages/AddCampaignPage";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         element: <RegisterPage />,
+      },
+      {
+        path: "/addCampaign",
+        element: <AddCampaignPage />,
       },
     ],
   },
