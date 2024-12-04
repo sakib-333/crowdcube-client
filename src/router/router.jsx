@@ -8,6 +8,7 @@ import AddCampaignPage from "../pages/AddCampaignPage";
 import PrivateRoute from "../components/PrivateRoute";
 import CampaignDetailsPage from "../pages/CampaignDetailsPage";
 import AllCampaigns from "../pages/AllCampaigns";
+import MyCampaignPage from "../pages/MyCampaignPage";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,14 @@ export const router = createBrowserRouter([
       {
         path: "/allCampaign",
         element: <AllCampaigns />,
+      },
+      {
+        path: "/myCampaign",
+        element: (
+          <PrivateRoute>
+            <MyCampaignPage />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/addCampaign",

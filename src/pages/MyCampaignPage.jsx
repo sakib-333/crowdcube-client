@@ -1,6 +1,6 @@
 import React from "react";
 
-const AllCampaigns = () => {
+const MyCampaignPage = () => {
   return (
     <div className="bg-white overflow-x-auto">
       <table className="table table-zebra">
@@ -12,7 +12,7 @@ const AllCampaigns = () => {
             <th>Campaign title</th>
             <th>Campaign type</th>
             <th>Deadline</th>
-            <th>Option</th>
+            <th>Options</th>
           </tr>
         </thead>
         <tbody>
@@ -32,8 +32,9 @@ const AllCampaigns = () => {
             <td>New Bussiness Idea</td>
             <td>Idea</td>
             <td>20/12/2024</td>
-            <th>
-              <button className="btn btn-ghost btn-xs">details</button>
+            <th className="flex gap-2">
+              <button className="btn btn-warning btn-xs">Update</button>
+              <button className="btn  btn-error btn-xs">Delete</button>
             </th>
           </tr>
           {/* row 2 */}
@@ -52,8 +53,9 @@ const AllCampaigns = () => {
             <td>New Bussiness Idea</td>
             <td>Idea</td>
             <td>20/12/2024</td>
-            <th>
-              <button className="btn btn-ghost btn-xs">details</button>
+            <th className="flex gap-2">
+              <button className="btn  btn-warning btn-xs">Update</button>
+              <button className="btn  btn-error btn-xs">Delete</button>
             </th>
           </tr>
 
@@ -73,8 +75,9 @@ const AllCampaigns = () => {
             <td>New Bussiness Idea</td>
             <td>Idea</td>
             <td>20/12/2024</td>
-            <th>
-              <button className="btn btn-ghost btn-xs">details</button>
+            <th className="flex gap-2">
+              <button className="btn  btn-warning btn-xs">Update</button>
+              <button className="btn  btn-error btn-xs">Delete</button>
             </th>
           </tr>
 
@@ -94,8 +97,9 @@ const AllCampaigns = () => {
             <td>New Bussiness Idea</td>
             <td>Idea</td>
             <td>20/12/2024</td>
-            <th>
-              <button className="btn btn-ghost btn-xs">details</button>
+            <th className="flex gap-2">
+              <button className="btn  btn-warning btn-xs">Update</button>
+              <button className="btn  btn-error btn-xs">Delete</button>
             </th>
           </tr>
         </tbody>
@@ -104,4 +108,4 @@ const AllCampaigns = () => {
   );
 };
 
-export default AllCampaigns;
+export default MyCampaignPage;
