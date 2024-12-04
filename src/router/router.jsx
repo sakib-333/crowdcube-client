@@ -6,6 +6,7 @@ import LoginPage from "../pages/LoginPage";
 import RegisterPage from "../pages/RegisterPage";
 import AddCampaignPage from "../pages/AddCampaignPage";
 import PrivateRoute from "../components/PrivateRoute";
+import CampaignDetailsPage from "../pages/CampaignDetailsPage";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddCampaignPage />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/campaign/:id",
+        element: (
+          <PrivateRoute>
+            <CampaignDetailsPage />
           </PrivateRoute>
         ),
       },
