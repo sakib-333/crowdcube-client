@@ -2,8 +2,8 @@ import React from "react";
 
 const FAQ = () => {
   return (
-    <div className="space-y-3 mt-4 md:mt-8 lg:mt-12">
-      <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-center text-blue-700">
+    <div className="space-y-3 mt-8 md:mt-12 lg:mt-16">
+      <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-primary md-4 md:mb-6 lg:mb-8">
         Frequently Asked Questions
       </h1>
       <div className="collapse collapse-arrow bg-base-200">
