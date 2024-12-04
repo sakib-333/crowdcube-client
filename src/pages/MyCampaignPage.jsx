@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const MyCampaignPage = () => {
   return (
@@ -33,7 +34,9 @@ const MyCampaignPage = () => {
             <td>Idea</td>
             <td>20/12/2024</td>
             <th className="flex gap-2">
-              <button className="btn btn-warning btn-xs">Update</button>
+              <Link to={`/updateCampaign/2`} className="btn btn-warning btn-xs">
+                Update
+              </Link>
               <button className="btn  btn-error btn-xs">Delete</button>
             </th>
           </tr>
@@ -54,7 +57,9 @@ const MyCampaignPage = () => {
             <td>Idea</td>
             <td>20/12/2024</td>
             <th className="flex gap-2">
-              <button className="btn  btn-warning btn-xs">Update</button>
+              <Link to={`/updateCampaign/2`} className="btn btn-warning btn-xs">
+                Update
+              </Link>
               <button className="btn  btn-error btn-xs">Delete</button>
             </th>
           </tr>
@@ -76,7 +81,9 @@ const MyCampaignPage = () => {
             <td>Idea</td>
             <td>20/12/2024</td>
             <th className="flex gap-2">
-              <button className="btn  btn-warning btn-xs">Update</button>
+              <Link to={`/updateCampaign/2`} className="btn btn-warning btn-xs">
+                Update
+              </Link>
               <button className="btn  btn-error btn-xs">Delete</button>
             </th>
           </tr>
@@ -98,7 +105,9 @@ const MyCampaignPage = () => {
             <td>Idea</td>
             <td>20/12/2024</td>
             <th className="flex gap-2">
-              <button className="btn  btn-warning btn-xs">Update</button>
+              <Link to={`/updateCampaign/2`} className="btn btn-warning btn-xs">
+                Update
+              </Link>
               <button className="btn  btn-error btn-xs">Delete</button>
             </th>
           </tr>

@@ -9,6 +9,7 @@ import PrivateRoute from "../components/PrivateRoute";
 import CampaignDetailsPage from "../pages/CampaignDetailsPage";
 import AllCampaigns from "../pages/AllCampaigns";
 import MyCampaignPage from "../pages/MyCampaignPage";
+import UpdateCampaignPage from "../pages/UpdateCampaignPage";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +46,14 @@ export const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddCampaignPage />
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/updateCampaign/:id",
+        element: (
+          <PrivateRoute>
+            <UpdateCampaignPage />
           </PrivateRoute>
         ),
       },
