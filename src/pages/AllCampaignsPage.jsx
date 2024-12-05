@@ -1,7 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useLoaderData } from "react-router-dom";
 
 const AllCampaignsPage = () => {
+  const [allCampaigns, setAllCampaigns] = useState(useLoaderData() || []);
+
   return (
     <div className="bg-white overflow-x-auto">
       <table className="table table-zebra">
@@ -18,95 +20,29 @@ const AllCampaignsPage = () => {
         </thead>
         <tbody>
           {/* row 1 */}
-          <tr>
-            <th>1</th>
-            <td>
-              <div className="avatar">
-                <div className="mask mask-squircle h-12 w-12">
-                  <img
-                    src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                    alt="Avatar Tailwind CSS Component"
-                  />
+          {allCampaigns.map((campaign, indx) => (
+            <tr key={campaign._id}>
+              <th>{indx + 1}</th>
+              <td>
+                <div className="avatar">
+                  <div className="mask mask-squircle h-12 w-12">
+                    <img src={campaign?.imageURL} alt="Thumbnail" />
+                  </div>
                 </div>
-              </div>
-            </td>
-            <td>New Bussiness Idea</td>
-            <td>Idea</td>
-            <td>20/12/2024</td>
-            <th>
-              <Link to={`/campaign/1`} className="btn btn-ghost btn-xs">
-                Details
-              </Link>
-            </th>
-          </tr>
-          {/* row 2 */}
-          <tr>
-            <th>2</th>
-            <td>
-              <div className="avatar">
-                <div className="mask mask-squircle h-12 w-12">
-                  <img
-                    src="https://img.daisyui.com/images/profile/demo/3@94.webp"
-                    alt="Avatar Tailwind CSS Component"
-                  />
-                </div>
-              </div>
-            </td>
-            <td>New Bussiness Idea</td>
-            <td>Idea</td>
-            <td>20/12/2024</td>
-            <th>
-              <Link to={`/campaign/2`} className="btn btn-ghost btn-xs">
-                Details
-              </Link>
-            </th>
-          </tr>
-
-          {/* row 3 */}
-          <tr>
-            <th>3</th>
-            <td>
-              <div className="avatar">
-                <div className="mask mask-squircle h-12 w-12">
-                  <img
-                    src="https://img.daisyui.com/images/profile/demo/4@94.webp"
-                    alt="Avatar Tailwind CSS Component"
-                  />
-                </div>
-              </div>
-            </td>
-            <td>New Bussiness Idea</td>
-            <td>Idea</td>
-            <td>20/12/2024</td>
-            <th>
-              <Link to={`/campaign/3`} className="btn btn-ghost btn-xs">
-                Details
-              </Link>
-            </th>
-          </tr>
-
-          {/* row 4 */}
-          <tr>
-            <th>4</th>
-            <td>
-              <div className="avatar">
-                <div className="mask mask-squircle h-12 w-12">
-                  <img
-                    src="https://img.daisyui.com/images/profile/demo/5@94.webp"
-                    alt="Avatar Tailwind CSS Component"
-                  />
-                </div>
-              </div>
-            </td>
-            <td>New Bussiness Idea</td>
-            <td>Idea</td>
-            <td>20/12/2024</td>
-            <th>
-              <Link to={`/campaign/4`} className="btn btn-ghost btn-xs">
-                Details
-              </Link>
-            </th>
-          </tr>
+              </td>
+              <td>{campaign?.campaignTitle}</td>
+              <td>{campaign?.campaignType}</td>
+              <td>{campaign?.deadline}</td>
+              <th>
+                <Link
+                  to={`/campaign/${campaign._id}`}
+                  className="btn btn-ghost btn-xs"
+                >
+                  Details
+                </Link>
+              </th>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

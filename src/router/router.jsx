@@ -33,6 +33,7 @@ export const router = createBrowserRouter([
       {
         path: "/allCampaign",
         element: <AllCampaignsPage />,
+        loader: () => fetch("http://localhost:3000/allCampaign"),
       },
       {
         path: "/myCampaign",
