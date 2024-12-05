@@ -1,7 +1,27 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const MyCampaignPage = () => {
+  const { user } = useContext(AuthContext);
+  const [myCampaigns, setMyCampaigns] = useState([]);
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/myCampaign/`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: user?.email }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setMyCampaigns(data);
+      })
+      .catch(() => toast.error("Something went wrong!"));
+  }, []);
+
   return (
     <div className="bg-white overflow-x-auto">
       <table className="table table-zebra">
@@ -17,100 +37,30 @@ const MyCampaignPage = () => {
           </tr>
         </thead>
         <tbody>
-          {/* row 1 */}
-          <tr>
-            <th>1</th>
-            <td>
-              <div className="avatar">
-                <div className="mask mask-squircle h-12 w-12">
-                  <img
-                    src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                    alt="Avatar Tailwind CSS Component"
-                  />
+          {myCampaigns.map((campaign, indx) => (
+            <tr key={campaign._id}>
+              <th>{indx + 1}</th>
+              <td>
+                <div className="avatar">
+                  <div className="mask mask-squircle h-12 w-12">
+                    <img src={campaign?.imageURL} alt="Thumbnail" />
+                  </div>
                 </div>
-              </div>
-            </td>
-            <td>New Bussiness Idea</td>
-            <td>Idea</td>
-            <td>20/12/2024</td>
-            <th className="flex gap-2">
-              <Link to={`/updateCampaign/2`} className="btn btn-warning btn-xs">
-                Update
-              </Link>
-              <button className="btn  btn-error btn-xs">Delete</button>
-            </th>
-          </tr>
-          {/* row 2 */}
-          <tr>
-            <th>2</th>
-            <td>
-              <div className="avatar">
-                <div className="mask mask-squircle h-12 w-12">
-                  <img
-                    src="https://img.daisyui.com/images/profile/demo/3@94.webp"
-                    alt="Avatar Tailwind CSS Component"
-                  />
-                </div>
-              </div>
-            </td>
-            <td>New Bussiness Idea</td>
-            <td>Idea</td>
-            <td>20/12/2024</td>
-            <th className="flex gap-2">
-              <Link to={`/updateCampaign/2`} className="btn btn-warning btn-xs">
-                Update
-              </Link>
-              <button className="btn  btn-error btn-xs">Delete</button>
-            </th>
-          </tr>
-
-          {/* row 3 */}
-          <tr>
-            <th>3</th>
-            <td>
-              <div className="avatar">
-                <div className="mask mask-squircle h-12 w-12">
-                  <img
-                    src="https://img.daisyui.com/images/profile/demo/4@94.webp"
-                    alt="Avatar Tailwind CSS Component"
-                  />
-                </div>
-              </div>
-            </td>
-            <td>New Bussiness Idea</td>
-            <td>Idea</td>
-            <td>20/12/2024</td>
-            <th className="flex gap-2">
-              <Link to={`/updateCampaign/2`} className="btn btn-warning btn-xs">
-                Update
-              </Link>
-              <button className="btn  btn-error btn-xs">Delete</button>
-            </th>
-          </tr>
-
-          {/* row 4 */}
-          <tr>
-            <th>4</th>
-            <td>
-              <div className="avatar">
-                <div className="mask mask-squircle h-12 w-12">
-                  <img
-                    src="https://img.daisyui.com/images/profile/demo/5@94.webp"
-                    alt="Avatar Tailwind CSS Component"
-                  />
-                </div>
-              </div>
-            </td>
-            <td>New Bussiness Idea</td>
-            <td>Idea</td>
-            <td>20/12/2024</td>
-            <th className="flex gap-2">
-              <Link to={`/updateCampaign/2`} className="btn btn-warning btn-xs">
-                Update
-              </Link>
-              <button className="btn  btn-error btn-xs">Delete</button>
-            </th>
-          </tr>
+              </td>
+              <td>{campaign?.campaignTitle}</td>
+              <td>{campaign?.campaignType}</td>
+              <td>{campaign?.deadline}</td>
+              <th className="flex gap-2">
+                <Link
+                  to={`/updateCampaign/${campaign._id}`}
+                  className="btn btn-warning btn-xs"
+                >
+                  Update
+                </Link>
+                <button className="btn  btn-error btn-xs">Delete</button>
+              </th>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
