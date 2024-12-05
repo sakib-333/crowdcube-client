@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
+import { handleDeleteCampaign } from "../utilities/handleDeleteCampaign";
 
 const MyCampaignPage = () => {
   const { user } = useContext(AuthContext);
@@ -57,7 +58,12 @@ const MyCampaignPage = () => {
                 >
                   Update
                 </Link>
-                <button className="btn  btn-error btn-xs">Delete</button>
+                <button
+                  className="btn  btn-error btn-xs"
+                  onClick={() => handleDeleteCampaign(campaign?._id, setMyCampaigns)}
+                >
+                  Delete
+                </button>
               </th>
             </tr>
           ))}
