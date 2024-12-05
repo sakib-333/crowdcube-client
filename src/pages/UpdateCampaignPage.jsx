@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { IoMdArrowRoundBack } from "react-icons/io";
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { handleUpdateCampaign } from "../utilities/handleUpdateCampaign";
+import { AuthContext } from "../provider/AuthProvider";
 
 const UpdateCampaignPage = () => {
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
+  const campaign = useLoaderData();
+
+  useEffect(() => {
+    if (campaign.userEmail !== user?.email) {
+      navigate("/allCampaign");
+    }
+  }, []);
 
   const handleGoback = () => {
     navigate(-1);
@@ -13,7 +22,7 @@ const UpdateCampaignPage = () => {
   return (
     <div className="w-5/6 mx-auto my-4">
       <button
-        className="btn bg-white text-primary border-0 my-4"
+        className="btn bg-white text-primary border-0 mb-8"
         onClick={handleGoback}
       >
         <IoMdArrowRoundBack /> <span>Back</span>
@@ -30,7 +39,7 @@ const UpdateCampaignPage = () => {
 
         <form
           className="w-full grid lg:grid-cols-2 gap-4 items-center"
-          onSubmit={handleUpdateCampaign}
+          onSubmit={(e) => handleUpdateCampaign(e, campaign?._id, navigate)}
         >
           {/* Image URL start */}
           <label className="form-control w-full">
@@ -43,6 +52,7 @@ const UpdateCampaignPage = () => {
               className="input input-bordered w-full"
               placeholder="Image URL"
               required
+              defaultValue={campaign?.imageURL}
             />
           </label>
           {/* Image URL end */}
@@ -58,6 +68,7 @@ const UpdateCampaignPage = () => {
               className="input input-bordered w-full"
               name="campaignTitle"
               required
+              defaultValue={campaign?.campaignTitle}
             />
           </label>
           {/* Campaign title end */}
@@ -77,6 +88,7 @@ const UpdateCampaignPage = () => {
               <option value={"Startup"}>Startup</option>
               <option value={"Business"}>Business</option>
               <option value={"Creative ideas"}>Creative ideas</option>
+              <option value={"Others"}>Others</option>
             </select>
           </label>
           {/* Campaign type end */}
@@ -91,6 +103,7 @@ const UpdateCampaignPage = () => {
               placeholder="Description of the campaign"
               name="description"
               rows={1}
+              defaultValue={campaign?.description}
             ></textarea>
           </label>
           {/* Description end */}
@@ -106,6 +119,7 @@ const UpdateCampaignPage = () => {
               name="minimumDonation"
               className="input input-bordered w-full"
               required
+              defaultValue={campaign?.minimumDonation}
             />
           </label>
           {/* Minimum donation end */}
@@ -120,6 +134,7 @@ const UpdateCampaignPage = () => {
               name="deadline"
               className="input input-bordered w-full"
               required
+              defaultValue={campaign?.deadline}
             />
           </label>
           {/* Deadline end */}
@@ -131,7 +146,7 @@ const UpdateCampaignPage = () => {
             </div>
             <input
               type="email"
-              defaultValue={"sakib@gmail.com"}
+              defaultValue={campaign?.userEmail}
               readOnly
               name="userEmail"
               className="input input-bordered w-full"
@@ -148,7 +163,7 @@ const UpdateCampaignPage = () => {
             <input
               type="text"
               name="userName"
-              defaultValue={"Sakibur Rahman"}
+              defaultValue={campaign?.userName}
               readOnly
               className="input input-bordered w-full"
               required

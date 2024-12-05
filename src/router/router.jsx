@@ -66,6 +66,8 @@ export const router = createBrowserRouter([
             <UpdateCampaignPage />
           </PrivateRoute>
         ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/campaign/${params.id}`),
       },
       {
         path: "/campaign/:id",

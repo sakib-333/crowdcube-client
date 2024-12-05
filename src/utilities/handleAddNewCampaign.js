@@ -25,16 +25,6 @@ export const handleAddNewCampaign = (e) => {
     userName,
   };
 
-  //   console.log(
-  //     campaignTitle,
-  //     campaignType,
-  //     minimumDonation,
-  //     deadline,
-  //     userEmail,
-  //     userName,
-  //     imageURL,
-  //     description
-  //   );
   fetch("http://localhost:3000/addCampaign", {
     method: "POST",
     headers: {
@@ -49,7 +39,7 @@ export const handleAddNewCampaign = (e) => {
           icon: "success",
           title: "Campaign added successfully",
           showConfirmButton: false,
-          timer: 1500,
+          timer: 3000,
         });
         form.reset();
       }

@@ -1,6 +1,7 @@
-export const handleUpdateCampaign = (e) => {
-  e.preventDefault();
+import Swal from "sweetalert2";
 
+export const handleUpdateCampaign = (e, id, navigate) => {
+  e.preventDefault();
   const form = e.target;
 
   const imageURL = form.imageURL.value;
@@ -12,14 +13,39 @@ export const handleUpdateCampaign = (e) => {
   const userEmail = form.userEmail.value;
   const userName = form.userName.value;
 
-  //   console.log(
-  //     campaignTitle,
-  //     campaignType,
-  //     minimumDonation,
-  //     deadline,
-  //     userEmail,
-  //     userName,
-  //     imageURL,
-  //     description
-  //   );
+  const updatedCampaign = {
+    imageURL,
+    campaignTitle,
+    campaignType,
+    description,
+    minimumDonation,
+    deadline,
+    userEmail,
+    userName,
+  };
+
+  fetch(`http://localhost:3000/updateCampaign/${id}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(updatedCampaign),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.acknowledged) {
+        navigate(-1);
+
+        Swal.fire({
+          icon: "success",
+          title: "Campaign updated successfully",
+          showConfirmButton: false,
+          timer: 3000,
+        });
+        form.reset();
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 };

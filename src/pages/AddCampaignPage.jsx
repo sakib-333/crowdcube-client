@@ -71,6 +71,7 @@ const AddCampaignPage = () => {
               <option value={"Startup"}>Startup</option>
               <option value={"Business"}>Business</option>
               <option value={"Creative ideas"}>Creative ideas</option>
+              <option value={"Others"}>Others</option>
             </select>
           </label>
           {/* Campaign type end */}
