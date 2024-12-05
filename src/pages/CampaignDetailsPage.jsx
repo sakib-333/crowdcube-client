@@ -33,11 +33,9 @@ const CampaignDetailsPage = () => {
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
             {campaign?.campaignTitle}
           </h2>
-          {/* <p className="badge badge-primary mb-4">{jsx Copy code
-campaignType || "Unknown Type"}</p> */}
+          <p className="badge badge-primary mb-4">{campaign?.campaignType}</p>
 
           <p className="text-gray-600 mb-4">{campaign?.description}</p>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="flex flex-col">
               <span className="font-semibold text-gray-700">
