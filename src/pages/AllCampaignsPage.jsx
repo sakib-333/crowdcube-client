@@ -38,7 +38,7 @@ const AllCampaignsPage = () => {
                   to={`/campaign/${campaign._id}`}
                   className="btn btn-ghost btn-xs"
                 >
-                  Details
+                  See More
                 </Link>
               </th>
             </tr>

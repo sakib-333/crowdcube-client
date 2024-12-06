@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useLoaderData, useNavigate } from "react-router-dom";
+import { checkDonationAvailablity } from "../utilities/checkDonationAvailablity";
+import { AuthContext } from "../provider/AuthProvider";
 
 const CampaignDetailsPage = () => {
+  const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const campaign = useLoaderData();
 
@@ -61,7 +64,17 @@ const CampaignDetailsPage = () => {
 
           {/* Donate Button */}
           <div className="mt-6">
-            <button className="btn btn-primary w-full md:w-auto">Donate</button>
+            <button
+              className="btn btn-primary w-full md:w-auto"
+              onClick={() =>
+                checkDonationAvailablity(campaign?.deadline, campaign, {
+                  donorEmail: user?.email,
+                  donorName: user.displayName,
+                })
+              }
+            >
+              Donate
+            </button>
           </div>
         </div>
       </div>
