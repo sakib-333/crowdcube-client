@@ -16,6 +16,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   const providerGoogle = new GoogleAuthProvider();
 
@@ -65,6 +66,8 @@ const AuthProvider = ({ children }) => {
     setLoading,
     isLoading,
     setIsLoading,
+    isDark,
+    setIsDark,
   };
 
   return (

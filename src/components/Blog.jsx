@@ -40,7 +40,7 @@ const Blog = () => {
         {posts.map((post, index) => (
           <div
             key={index}
-            className="card w-full bg-base-100 shadow-xl hover:shadow-2xl transition-all"
+            className="card w-full bg-base-100 shadow-xl hover:shadow-2xl transition-all dark:bg-sky-300 dark:text-black"
           >
             <figure className="px-4 pt-4">
               <img

@@ -21,7 +21,7 @@ const RunningCampaigns = () => {
       <Marquee pauseOnHover={true}>
         {runningCampaigns.map((campaign, indx) => (
           <div
-            className="max-w-sm p-6 bg-white rounded-lg ml-8"
+            className="max-w-sm p-6 border-2 bg-white rounded-lg ml-8 dark:bg-sky-300 dark:text-black"
             key={campaign._id}
           >
             <p className="text-primary">#{indx + 1}</p>
