@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { handleSignoutUser } from "../utilities/handleSignoutUser";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const { user, signoutUser } = useContext(AuthContext);
@@ -72,10 +73,12 @@ const Navbar = () => {
           <div className="relative group">
             <img
               className="w-12 h-12 rounded-full"
-              title={user?.displayName}
+              data-tooltip-id="my-tooltip"
+              data-tooltip-content={user?.displayName}
               src={user?.photoURL}
               alt="photo"
             />
+            <Tooltip id="my-tooltip" />
             <button
               className="btn z-10 hidden group-hover:block absolute w-max right-0 top-12"
               onClick={() => handleSignoutUser(signoutUser)}
