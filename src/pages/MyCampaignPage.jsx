@@ -4,6 +4,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 import { handleDeleteCampaign } from "../utilities/handleDeleteCampaign";
 import LoadingComponent from "../components/LoadingComponent";
+import { Typewriter } from "react-simple-typewriter";
 
 const MyCampaignPage = () => {
   const { user, isLoading, setIsLoading } = useContext(AuthContext);
@@ -28,7 +29,7 @@ const MyCampaignPage = () => {
 
   return isLoading ? (
     <LoadingComponent />
-  ) : (
+  ) : myCampaigns.length ? (
     <div className="bg-white overflow-x-auto">
       <table className="table table-zebra">
         {/* head */}
@@ -77,6 +78,18 @@ const MyCampaignPage = () => {
         </tbody>
       </table>
     </div>
+  ) : (
+    <h1 className="text-xl font-bold text-primary">
+      <Typewriter
+        words={["If you add any campaign, will appear here."]}
+        loop={0}
+        cursor
+        cursorStyle="|"
+        typeSpeed={70}
+        deleteSpeed={50}
+        delaySpeed={1000}
+      />
+    </h1>
   );
 };
 

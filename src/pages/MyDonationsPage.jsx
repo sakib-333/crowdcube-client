@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 import LoadingComponent from "../components/LoadingComponent";
+import { Typewriter } from "react-simple-typewriter";
 
 const MyDonationsPage = () => {
   const { user, isLoading, setIsLoading } = useContext(AuthContext);
@@ -26,7 +27,7 @@ const MyDonationsPage = () => {
 
   return isLoading ? (
     <LoadingComponent />
-  ) : (
+  ) : myDonations.length ? (
     <div>
       <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-primary mb-4 md:mb-6 lg:mb-8">
         My Donations
@@ -53,6 +54,18 @@ const MyDonationsPage = () => {
         ))}
       </div>
     </div>
+  ) : (
+    <h1 className="text-xl font-bold text-primary">
+      <Typewriter
+        words={["If you donate, will appear here."]}
+        loop={0}
+        cursor
+        cursorStyle="|"
+        typeSpeed={70}
+        deleteSpeed={50}
+        delaySpeed={1000}
+      />
+    </h1>
   );
 };
 
