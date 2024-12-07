@@ -26,18 +26,19 @@ const MyDonationsPage = () => {
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {myDonations.map((campaign) => (
-          <div key={campaign._id} className="card card-compact bg-base-100">
-            <figure>
-              <img
-                className="w-full h-full"
-                src={campaign?.imageURL}
-                alt="Thumbnail"
-              />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">{campaign?.campaignTitle}</h2>
-              <p>Minimum Donation: {campaign?.minimumDonation}</p>
-            </div>
+          <div className="max-w-sm mx-auto rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg">
+            <img
+              src={campaign?.imageURL}
+              alt="Image"
+              className="mb-4 h-48 w-full rounded-t-lg object-cover"
+            />
+
+            <h2 className="mb-2 text-2xl font-semibold text-gray-800">
+              {campaign?.campaignTitle}
+            </h2>
+            <p className="mb-4 overflow-hidden text-ellipsis whitespace-nowrap">
+              {campaign?.description}
+            </p>
           </div>
         ))}
       </div>
