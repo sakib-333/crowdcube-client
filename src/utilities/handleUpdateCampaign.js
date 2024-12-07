@@ -18,7 +18,7 @@ export const handleUpdateCampaign = (e, id, navigate) => {
     campaignTitle,
     campaignType,
     description,
-    minimumDonation,
+    minimumDonation: Number(minimumDonation),
     deadline,
     userEmail,
     userName,

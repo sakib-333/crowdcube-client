@@ -15,7 +15,6 @@ const CampaignDetailsPage = () => {
   return (
     <div className="my-4">
       <button
-        to={"/"}
         className="btn bg-white text-primary border-0 mb-8"
         onClick={handleGoback}
       >
