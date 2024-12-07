@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 import { handleDeleteCampaign } from "../utilities/handleDeleteCampaign";
+import LoadingComponent from "../components/LoadingComponent";
 
 const MyCampaignPage = () => {
-  const { user } = useContext(AuthContext);
+  const { user, isLoading, setIsLoading } = useContext(AuthContext);
   const [myCampaigns, setMyCampaigns] = useState([]);
 
   useEffect(() => {
@@ -18,12 +19,15 @@ const MyCampaignPage = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        setIsLoading(() => false);
         setMyCampaigns(data);
       })
       .catch(() => toast.error("Something went wrong!"));
   }, []);
 
-  return (
+  return isLoading ? (
+    <LoadingComponent />
+  ) : (
     <div className="bg-white overflow-x-auto">
       <table className="table table-zebra">
         {/* head */}

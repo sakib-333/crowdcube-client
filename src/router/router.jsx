@@ -33,7 +33,7 @@ export const router = createBrowserRouter([
       {
         path: "/allCampaign",
         element: <AllCampaignsPage />,
-        loader: () => fetch("https://ph-b10-a10-server.vercel.app/allCampaign"),
+        // loader: () => fetch("https://ph-b10-a10-server.vercel.app/allCampaign"),
       },
       {
         path: "/myCampaign",

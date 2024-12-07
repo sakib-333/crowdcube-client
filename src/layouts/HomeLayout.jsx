@@ -13,7 +13,7 @@ const HomeLayout = () => {
       <div className="min-h-screen p-4">
         {loading ? (
           <div className="flex justify-center">
-            <span className="loading loading-spinner text-primary w-10"></span>
+            <span className="loading loading-spinner text-primary w-16"></span>
           </div>
         ) : (
           <Outlet />

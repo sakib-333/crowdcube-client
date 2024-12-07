@@ -15,6 +15,8 @@ export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+
   const providerGoogle = new GoogleAuthProvider();
 
   // Signin methods
@@ -61,6 +63,8 @@ const AuthProvider = ({ children }) => {
     signoutUser,
     loading,
     setLoading,
+    isLoading,
+    setIsLoading,
   };
 
   return (

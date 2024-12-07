@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
+import LoadingComponent from "../components/LoadingComponent";
 
 const MyDonationsPage = () => {
-  const { user } = useContext(AuthContext);
+  const { user, isLoading, setIsLoading } = useContext(AuthContext);
   const [myDonations, setMyDonations] = useState([]);
 
   useEffect(() => {
@@ -15,11 +16,16 @@ const MyDonationsPage = () => {
       body: JSON.stringify({}),
     })
       .then((res) => res.json())
-      .then((data) => setMyDonations(data))
+      .then((data) => {
+        setIsLoading(() => false);
+        setMyDonations(data);
+      })
       .catch(() => toast.error("Something went wrong."));
   }, []);
 
-  return (
+  return isLoading ? (
+    <LoadingComponent />
+  ) : (
     <div>
       <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-primary mb-4 md:mb-6 lg:mb-8">
         My Donations
