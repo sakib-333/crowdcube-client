@@ -7,7 +7,7 @@ const RunningCampaigns = () => {
   const [runningCampaigns, setRunningCampaigns] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/currently-running-campaigns")
+    fetch("https://ph-b10-a10-server.vercel.app/currently-running-campaigns")
       .then((res) => res.json())
       .then((data) => setRunningCampaigns(data))
       .catch(() => toast.error("Something went wrong."));
@@ -20,19 +20,22 @@ const RunningCampaigns = () => {
       </h1>
       <Marquee pauseOnHover={true}>
         {runningCampaigns.map((campaign, indx) => (
-          <div class="max-w-sm p-6 bg-white rounded-lg ml-8">
+          <div
+            className="max-w-sm p-6 bg-white rounded-lg ml-8"
+            key={campaign._id}
+          >
             <p className="text-primary">#{indx + 1}</p>
-            <h2 class="text-2xl font-semibold text-gray-800 mb-2">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-2">
               {campaign?.campaignTitle}
             </h2>
 
-            <p class="mb-4 overflow-hidden text-ellipsis whitespace-nowrap">
+            <p className="mb-4 overflow-hidden text-ellipsis whitespace-nowrap">
               {campaign?.description}
             </p>
 
             <Link
               to={`/campaign/${campaign._id}`}
-              class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
             >
               See More
             </Link>

@@ -24,7 +24,7 @@ export const handleUpdateCampaign = (e, id, navigate) => {
     userName,
   };
 
-  fetch(`http://localhost:3000/updateCampaign/${id}`, {
+  fetch(`https://ph-b10-a10-server.vercel.app/updateCampaign/${id}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

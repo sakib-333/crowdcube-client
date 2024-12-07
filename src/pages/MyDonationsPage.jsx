@@ -7,7 +7,7 @@ const MyDonationsPage = () => {
   const [myDonations, setMyDonations] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/myDonations/${user?.email}`, {
+    fetch(`https://ph-b10-a10-server.vercel.app/myDonations/${user?.email}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,7 +26,10 @@ const MyDonationsPage = () => {
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {myDonations.map((campaign) => (
-          <div className="max-w-sm mx-auto rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg">
+          <div
+            className="max-w-sm mx-auto rounded-lg bg-white p-6 shadow-md transition-shadow hover:shadow-lg"
+            key={campaign._id}
+          >
             <img
               src={campaign?.imageURL}
               alt="Image"

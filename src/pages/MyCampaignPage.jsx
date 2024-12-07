@@ -9,7 +9,7 @@ const MyCampaignPage = () => {
   const [myCampaigns, setMyCampaigns] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/myCampaign/`, {
+    fetch(`https://ph-b10-a10-server.vercel.app/myCampaign/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -60,7 +60,9 @@ const MyCampaignPage = () => {
                 </Link>
                 <button
                   className="btn  btn-error btn-xs"
-                  onClick={() => handleDeleteCampaign(campaign?._id, setMyCampaigns)}
+                  onClick={() =>
+                    handleDeleteCampaign(campaign?._id, setMyCampaigns)
+                  }
                 >
                   Delete
                 </button>

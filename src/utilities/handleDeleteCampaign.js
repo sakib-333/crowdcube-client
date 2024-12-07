@@ -11,7 +11,7 @@ export const handleDeleteCampaign = (id, setMyCampaigns) => {
     confirmButtonText: "Yes, delete it!",
   }).then((result) => {
     if (result.isConfirmed) {
-      fetch(`http://localhost:3000/myCampaign/${id}`, {
+      fetch(`https://ph-b10-a10-server.vercel.app/myCampaign/${id}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

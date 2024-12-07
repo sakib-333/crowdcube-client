@@ -14,7 +14,7 @@ export const checkDonationAvailablity = (deadline, campaign, donorInfo) => {
   } else {
     const { _id: campaign_id, ...campaignExceptId } = campaign;
 
-    fetch("http://localhost:3000/myDonations", {
+    fetch("https://ph-b10-a10-server.vercel.app/myDonations", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

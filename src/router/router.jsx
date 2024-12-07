@@ -33,7 +33,7 @@ export const router = createBrowserRouter([
       {
         path: "/allCampaign",
         element: <AllCampaignsPage />,
-        loader: () => fetch("http://localhost:3000/allCampaign"),
+        loader: () => fetch("https://ph-b10-a10-server.vercel.app/allCampaign"),
       },
       {
         path: "/myCampaign",
@@ -67,7 +67,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/campaign/${params.id}`),
+          fetch(`https://ph-b10-a10-server.vercel.app/campaign/${params.id}`),
       },
       {
         path: "/campaign/:id",
@@ -77,7 +77,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/campaign/${params.id}`),
+          fetch(`https://ph-b10-a10-server.vercel.app/campaign/${params.id}`),
       },
     ],
   },
