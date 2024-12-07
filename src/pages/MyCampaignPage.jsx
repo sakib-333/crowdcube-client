@@ -10,6 +10,7 @@ const MyCampaignPage = () => {
   const [myCampaigns, setMyCampaigns] = useState([]);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch(`https://ph-b10-a10-server.vercel.app/myCampaign/`, {
       method: "POST",
       headers: {

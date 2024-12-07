@@ -10,6 +10,7 @@ const AllCampaignsPage = () => {
   const [allCampaigns, setAllCampaigns] = useState([]);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch("https://ph-b10-a10-server.vercel.app/allCampaign")
       .then((res) => res.json())
       .then((data) => {

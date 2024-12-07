@@ -8,6 +8,7 @@ const MyDonationsPage = () => {
   const [myDonations, setMyDonations] = useState([]);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch(`https://ph-b10-a10-server.vercel.app/myDonations/${user?.email}`, {
       method: "POST",
       headers: {
@@ -17,7 +18,7 @@ const MyDonationsPage = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        setIsLoading(() => false);
+        setIsLoading(false);
         setMyDonations(data);
       })
       .catch(() => toast.error("Something went wrong."));
