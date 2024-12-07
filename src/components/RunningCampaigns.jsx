@@ -24,7 +24,7 @@ const RunningCampaigns = () => {
             className="max-w-sm p-6 border-2 bg-white rounded-lg ml-8 dark:bg-sky-300 dark:text-black"
             key={campaign._id}
           >
-            <p className="text-primary">#{indx + 1}</p>
+            <p className="text-primary dark:text-black">#{indx + 1}</p>
             <h2 className="text-2xl font-semibold text-gray-800 mb-2">
               {campaign?.campaignTitle}
             </h2>
