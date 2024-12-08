@@ -23,7 +23,7 @@ const HomePage = () => {
         className="p-4 rounded-full bg-blue-200 fixed right-5 bottom-5 z-10"
         onClick={() => setIsDark((c) => !c)}
       >
-        {isDark ? <FiSun /> : <FiMoon />}
+        {isDark ? <FiSun className="dark:text-black" /> : <FiMoon />}
       </button>
     </div>
   );

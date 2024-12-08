@@ -88,10 +88,10 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="flex items-center gap-1">
-            <Link to={"/login"} className="btn btn-outline">
+            <Link to={"/login"} className="btn btn-outline dark:text-white">
               Log in
             </Link>
-            <Link to={"/register"} className="btn btn-outline">
+            <Link to={"/register"} className="btn btn-outline dark:text-white">
               Register
             </Link>
           </div>
