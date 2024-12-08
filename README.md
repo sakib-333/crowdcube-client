@@ -28,4 +28,4 @@ A crowdfunding website is a platform where people can raise money for different 
 
 ## Live links
 
-1. Live link: [visit](www.demo-project-live-link.com)
+1. Live link: [visit](https://sakib-333-ph-b10-a10.netlify.app/)
