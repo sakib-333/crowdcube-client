@@ -1,4 +1,5 @@
 import React from "react";
+import { Fade } from "react-awesome-reveal";
 
 const Blog = () => {
   const posts = [
@@ -42,26 +43,28 @@ const Blog = () => {
             key={index}
             className="card w-full bg-base-100 shadow-xl hover:shadow-2xl transition-all dark:bg-sky-300 dark:text-black"
           >
-            <figure className="px-4 pt-4">
-              <img
-                src={post.photo}
-                alt="Blog Post"
-                className="w-10 rounded-lg"
-              />
-            </figure>
-            <div className="card-body p-6">
-              <h3 className="text-2xl font-semibold">{post.title}</h3>
-              <p className="text-sm text-gray-500 mt-2">
-                <span className="font-semibold">By</span> {post.author} |{" "}
-                <span>{post.date}</span>
-              </p>
-              <p className="mt-4 text-gray-700">{post.excerpt}</p>
-              <div className="card-actions justify-end mt-4">
-                <a href={post.link} className="btn btn-primary">
-                  Read More
-                </a>
+            <Fade direction="top-left">
+              <figure className="px-4 pt-4">
+                <img
+                  src={post.photo}
+                  alt="Blog Post"
+                  className="w-10 rounded-lg"
+                />
+              </figure>
+              <div className="card-body p-6">
+                <h3 className="text-2xl font-semibold">{post.title}</h3>
+                <p className="text-sm text-gray-500 mt-2">
+                  <span className="font-semibold">By</span> {post.author} |{" "}
+                  <span>{post.date}</span>
+                </p>
+                <p className="mt-4 text-gray-700">{post.excerpt}</p>
+                <div className="card-actions justify-end mt-4">
+                  <a href={post.link} className="btn btn-primary">
+                    Read More
+                  </a>
+                </div>
               </div>
-            </div>
+            </Fade>
           </div>
         ))}
       </div>
