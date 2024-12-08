@@ -1,10 +1,8 @@
-# React Project Structure
+# Crowdcube: A Crowd Funding Application
 
 ## Description
 
-Lorem ipsum dolor sit, amet consectetur adipisicing elit. Debitis magni
-modi explicabo rem aut quibusdam itaque velit omnis dolorem, dolore
-provident, quis ab sed voluptatibus nesciunt dolores atque officia eius.
+A crowdfunding website is a platform where people can raise money for different projects, ideas, or causes by inviting others to contribute financially. These projects can include personal needs (like medical expenses), creative ideas (like making a film or app), and startups (like launching a new product).
 
 ## React Fundamental concepts used
 
@@ -16,21 +14,17 @@ provident, quis ab sed voluptatibus nesciunt dolores atque officia eius.
 
 4. React router
 
-## Five key features
+## Key features
 
-1. Features-1
+- Firebase authentication(Sign in, sign up, google sign in, sign out)
 
-2. Features-2
+- Consists of many private routes(Add campagin, details, update, delete, my campaigns, my donations).
 
-3. Features-3
+- Performs MongoDB **CRUD**(Add campagin, see details, update, delete) operations.
 
-4. Features-4
+- One user can see/donate his campaigns as well as other's campaigns but can only update, delete his campaign.
 
-5. Features-5
-
-## For Data Management
-
-1. What techonology(Context api, local storage, database) is used to manage data.
+- Toggle light and dark mood for **Home** page.
 
 ## Live links
 
