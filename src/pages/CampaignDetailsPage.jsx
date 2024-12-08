@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { checkDonationAvailablity } from "../utilities/checkDonationAvailablity";
@@ -8,6 +8,10 @@ const CampaignDetailsPage = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const campaign = useLoaderData();
+
+  useEffect(() => {
+    document.title = "Crowdcube | Campaign Details";
+  }, []);
 
   const handleGoback = () => {
     navigate(-1);

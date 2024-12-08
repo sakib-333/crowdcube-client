@@ -22,6 +22,10 @@ const AllCampaignsPage = () => {
       });
   }, []);
 
+  useEffect(() => {
+    document.title = "Crowdcube | All Campaigns";
+  }, []);
+
   const handleSortCampaigns = () => {
     setIsLoading(true);
     fetch("https://ph-b10-a10-server.vercel.app/sort-campaigns")

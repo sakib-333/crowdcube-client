@@ -27,6 +27,10 @@ const MyCampaignPage = () => {
       .catch(() => toast.error("Something went wrong!"));
   }, []);
 
+  useEffect(() => {
+    document.title = "Crowdcube | My Campaign";
+  }, []);
+
   return isLoading ? (
     <LoadingComponent />
   ) : myCampaigns.length ? (

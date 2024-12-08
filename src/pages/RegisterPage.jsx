@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
@@ -12,6 +12,10 @@ const RegisterPage = () => {
   const { signupUser, signinWithGoogle, updateUserProfile, setLoading } =
     useContext(AuthContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "Crowdcube | Register";
+  }, []);
 
   return (
     <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl mx-auto my-4 md:my-8 lg:my-12">

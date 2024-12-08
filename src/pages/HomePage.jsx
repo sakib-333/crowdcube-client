@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import Slider from "../components/Slider";
 import RunningCampaigns from "../components/RunningCampaigns";
 import FAQ from "../components/FAQ";
@@ -8,6 +8,10 @@ import { AuthContext } from "../provider/AuthProvider";
 
 const HomePage = () => {
   const { isDark, setIsDark } = useContext(AuthContext);
+
+  useEffect(() => {
+    document.title = "Crowdcube | Home";
+  }, []);
 
   return (
     <div className="relative space-y-8 md:space-y-16 lg:space-y-20 dark:bg-black">

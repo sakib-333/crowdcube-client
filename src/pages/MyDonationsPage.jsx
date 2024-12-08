@@ -26,6 +26,10 @@ const MyDonationsPage = () => {
       .catch(() => toast.error("Something went wrong."));
   }, []);
 
+  useEffect(() => {
+    document.title = "Crowdcube | My Donations";
+  }, []);
+
   return isLoading ? (
     <LoadingComponent />
   ) : myDonations.length ? (

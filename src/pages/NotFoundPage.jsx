@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const NotFoundPage = () => {
+  useEffect(() => {
+    document.title = "Crowdcube | Page Not Found";
+  }, []);
+
   return (
     <div className="text-center px-6 md:px-12 py-12 w-full">
       <h1 className="text-6xl md:text-8xl font-bold text-red-700 mb-4">404</h1>

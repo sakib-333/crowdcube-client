@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
@@ -6,6 +6,10 @@ import { handleAddNewCampaign } from "../utilities/handleAddNewCampaign";
 
 const AddCampaignPage = () => {
   const { user } = useContext(AuthContext);
+
+  useEffect(() => {
+    document.title = "Crowdcube | Add New Campaign";
+  }, []);
 
   return (
     <div className="w-5/6 mx-auto my-4">

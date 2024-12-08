@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useNavigate } from "react-router-dom";
@@ -10,6 +10,10 @@ const LoginPage = () => {
   const [view, setView] = useState(false);
   const { signinUser, signinWithGoogle, setLoading } = useContext(AuthContext);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "Crowdcube | Login";
+  }, []);
 
   return (
     <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl mx-auto my-4 md:my-8 lg:my-12">

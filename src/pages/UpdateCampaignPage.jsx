@@ -15,6 +15,10 @@ const UpdateCampaignPage = () => {
     }
   }, []);
 
+  useEffect(() => {
+    document.title = "Crowdcube | Update Campaign";
+  }, []);
+
   const handleGoback = () => {
     navigate(-1);
   };
