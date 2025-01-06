@@ -58,7 +58,7 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex items-center">
-          <h1 className="text-xl md:text-2xl lg:text-3xl font-bold">
+          <h1 className="text-xl text-accent md:text-2xl lg:text-3xl font-bold">
             Crowdcube
           </h1>
         </div>
