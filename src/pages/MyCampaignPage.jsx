@@ -80,12 +80,12 @@ const MyCampaignPage = () => {
                 <div className="flex gap-1 items-center">
                   <Link
                     to={`/updateCampaign/${campaign._id}`}
-                    className="btn-primary"
+                    className="px-3 py-2 hover:bg-secondary rounded"
                   >
                     <FaEdit />
                   </Link>
                   <button
-                    className="btn-primary"
+                    className="px-3 py-2 hover:bg-secondary rounded"
                     onClick={() =>
                       handleDeleteCampaign(campaign?._id, setMyCampaigns)
                     }
@@ -134,12 +134,12 @@ const MyCampaignPage = () => {
                     <div className="flex gap-2">
                       <Link
                         to={`/updateCampaign/${campaign._id}`}
-                        className="btn btn-warning btn-xs"
+                        className="px-3 py-2 hover:bg-secondary rounded"
                       >
                         <FaEdit />
                       </Link>
                       <button
-                        className="btn  btn-error btn-xs"
+                        className="px-3 py-2 hover:bg-secondary rounded"
                         onClick={() =>
                           handleDeleteCampaign(campaign?._id, setMyCampaigns)
                         }
