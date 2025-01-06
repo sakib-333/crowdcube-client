@@ -1,31 +1,30 @@
 import React from "react";
 import { Fade } from "react-awesome-reveal";
+import Heading from "./Heading";
 
 const FAQ = () => {
   return (
     <div className="space-y-3">
-      <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-primary md-4 md:mb-6 lg:mb-8">
-        Frequently Asked Questions
-      </h1>
+      <Heading title="Frequently Asked Questions" />
       <Fade direction="down">
-        <div className="collapse collapse-arrow bg-base-200">
+        <div className="collapse collapse-arrow border border-text">
           <input type="radio" name="my-accordion-2" defaultChecked />
-          <div className="collapse-title text-xl font-medium">
+          <div className="collapse-title text-xl text-text font-medium">
             What is crowdfunding?
           </div>
-          <div className="collapse-content">
+          <div className="collapse-content text-text opacity-50">
             <p>
               Crowdfunding is the practice of raising small amounts of money
               from a large number of people, typically via the internet.
             </p>
           </div>
         </div>
-        <div className="collapse collapse-arrow bg-base-200">
+        <div className="collapse collapse-arrow border border-text">
           <input type="radio" name="my-accordion-2" />
-          <div className="collapse-title text-xl font-medium">
+          <div className="collapse-title text-xl text-text font-medium">
             How does this crowdfunding platform work?
           </div>
-          <div className="collapse-content">
+          <div className="collapse-content text-text opacity-50">
             <p>
               Our platform allows creators to launch campaigns and raise funds
               for their projects. Supporters (backers) can browse various
@@ -35,12 +34,12 @@ const FAQ = () => {
             </p>
           </div>
         </div>
-        <div className="collapse collapse-arrow bg-base-200">
+        <div className="collapse collapse-arrow border border-text">
           <input type="radio" name="my-accordion-2" />
-          <div className="collapse-title text-xl font-medium">
+          <div className="collapse-title text-xl text-text font-medium">
             Can I create a campaign on this platform?
           </div>
-          <div className="collapse-content">
+          <div className="collapse-content text-text opacity-50">
             <p>
               Yes! If you have a project, idea, or cause you want to fund, you
               can create a campaign by signing up and following the steps to
@@ -49,12 +48,12 @@ const FAQ = () => {
             </p>
           </div>
         </div>
-        <div className="collapse collapse-arrow bg-base-200">
+        <div className="collapse collapse-arrow border border-text">
           <input type="radio" name="my-accordion-2" />
-          <div className="collapse-title text-xl font-medium">
+          <div className="collapse-title text-xl text-text font-medium">
             How do I contribute to a campaign?
           </div>
-          <div className="collapse-content">
+          <div className="collapse-content text-text opacity-50">
             <p>
               You can browse the available campaigns on our platform, choose one
               you'd like to support, and contribute directly through a secure
@@ -63,12 +62,12 @@ const FAQ = () => {
             </p>
           </div>
         </div>
-        <div className="collapse collapse-arrow bg-base-200">
+        <div className="collapse collapse-arrow border border-text">
           <input type="radio" name="my-accordion-2" />
-          <div className="collapse-title text-xl font-medium">
+          <div className="collapse-title text-xl text-text font-medium">
             Is my payment secure?
           </div>
-          <div className="collapse-content">
+          <div className="collapse-content text-text opacity-50">
             <p>
               Yes! We use secure payment gateways to process transactions and
               ensure your financial information is protected. Your contributions

@@ -13,5 +13,5 @@ export default {
     },
   },
   plugins: [require("daisyui")],
-  darkMode: ["selector", '[data-theme="dark"]'],
+  // darkMode: ["selector", '[data-theme="dark"]'],
 };
