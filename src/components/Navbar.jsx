@@ -31,7 +31,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% px-2">
+    <div className="navbar text-text border-b border-primary px-2">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -52,21 +52,19 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[10] mt-3 w-52 p-2 shadow dark:text-white"
+            className="menu menu-sm dropdown-content bg-background rounded-box z-[10] mt-3 w-52 p-2 shadow"
           >
             {navItems}
           </ul>
         </div>
         <div className="flex items-center">
-          <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-white">
+          <h1 className="text-xl md:text-2xl lg:text-3xl font-bold">
             Crowdcube
           </h1>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1 dark:text-white">
-          {navItems}
-        </ul>
+        <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
       <div className="navbar-end">
         {user ? (
@@ -80,7 +78,7 @@ const Navbar = () => {
             />
             <Tooltip id="my-tooltip" />
             <button
-              className="btn z-10 hidden group-hover:block absolute w-max right-0 top-12"
+              className="btn-primary z-10 hidden group-hover:block absolute w-max right-0 top-12"
               onClick={() => handleSignoutUser(signoutUser)}
             >
               Log out
@@ -88,10 +86,10 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="flex items-center gap-1">
-            <Link to={"/login"} className="btn btn-outline dark:text-white">
+            <Link to={"/login"} className="btn-primary">
               Log in
             </Link>
-            <Link to={"/register"} className="btn btn-outline dark:text-white">
+            <Link to={"/register"} className="btn-primary hidden sm:block">
               Register
             </Link>
           </div>
