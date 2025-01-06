@@ -1,26 +1,23 @@
 import React, { useContext, useEffect } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { AuthContext } from "../provider/AuthProvider";
+import { FiMoon, FiSun } from "react-icons/fi";
 
 const HomeLayout = () => {
-  const { loading, isDark } = useContext(AuthContext);
-  const { pathname } = useLocation();
+  const { loading, isDark, setIsDark } = useContext(AuthContext);
 
   useEffect(() => {
-    if (pathname === "/") {
-      document.documentElement.setAttribute(
-        "data-theme",
-        isDark ? "dark" : "light"
-      );
+    if (isDark) {
+      document.body.classList.add("dark");
     } else {
-      document.documentElement.setAttribute("data-theme", "light");
+      document.body.classList.remove("dark");
     }
-  }, [pathname, isDark]);
+  }, [isDark]);
 
   return (
-    <div className="max-w-screen-2xl mx-auto bg-slate-200">
+    <div className="max-w-screen-2xl mx-auto">
       <Navbar />
       <div className="min-h-screen p-4">
         {loading ? (
@@ -28,7 +25,15 @@ const HomeLayout = () => {
             <span className="loading loading-spinner text-primary w-16"></span>
           </div>
         ) : (
-          <Outlet />
+          <>
+            <Outlet />
+            <button
+              className="p-4 rounded-full bg-blue-200 fixed right-5 bottom-5 z-10"
+              onClick={() => setIsDark((c) => !c)}
+            >
+              {isDark ? <FiSun className="dark:text-black" /> : <FiMoon />}
+            </button>
+          </>
         )}
       </div>
       <Footer />

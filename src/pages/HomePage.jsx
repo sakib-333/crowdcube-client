@@ -1,14 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import Slider from "../components/Slider";
 import RunningCampaigns from "../components/RunningCampaigns";
 import FAQ from "../components/FAQ";
 import Blog from "../components/Blog";
-import { FiSun, FiMoon } from "react-icons/fi";
-import { AuthContext } from "../provider/AuthProvider";
 
 const HomePage = () => {
-  const { isDark, setIsDark } = useContext(AuthContext);
-
   useEffect(() => {
     document.title = "Crowdcube | Home";
   }, []);
@@ -19,12 +15,6 @@ const HomePage = () => {
       <RunningCampaigns />
       <Blog />
       <FAQ />
-      <button
-        className="p-4 rounded-full bg-blue-200 fixed right-5 bottom-5 z-10"
-        onClick={() => setIsDark((c) => !c)}
-      >
-        {isDark ? <FiSun className="dark:text-black" /> : <FiMoon />}
-      </button>
     </div>
   );
 };
