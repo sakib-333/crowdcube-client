@@ -4,6 +4,10 @@ import { toast } from "react-toastify";
 import LoadingComponent from "../components/LoadingComponent";
 import { Typewriter } from "react-simple-typewriter";
 import { Fade } from "react-awesome-reveal";
+import Heading from "../components/Heading";
+import CampaignCard from "../components/CampaignCard";
+import { BiCategory } from "react-icons/bi";
+import { FaDonate } from "react-icons/fa";
 
 const MyDonationsPage = () => {
   const { user, isLoading, setIsLoading } = useContext(AuthContext);
@@ -34,32 +38,29 @@ const MyDonationsPage = () => {
     <LoadingComponent />
   ) : myDonations.length ? (
     <div>
-      <Fade direction="up">
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-primary mb-4 md:mb-6 lg:mb-8">
-          My Donations
-        </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {myDonations.map((campaign) => (
-            <div
-              className="max-w-sm w-full mx-auto rounded-lg bg-white p-6"
-              key={campaign._id}
-            >
-              <img
-                src={campaign?.imageURL}
-                alt="Image"
-                className="mb-4 w-full rounded-t-lg object-cover"
-              />
-
-              <h2 className="mb-2 text-2xl font-semibold text-gray-800">
+      <Heading title="My Donations" />
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        {myDonations.map((campaign) => (
+          <div key={campaign._id} className="max-w-52 w-full mx-auto">
+            <img
+              className="w-full h-24 bg-white"
+              src={campaign?.imageURL}
+              alt="Thumbnail"
+            />
+            <div className="px-2 pb-2 flex flex-col gap-1 bg-tertiary">
+              <h1 className="overflow-hidden text-ellipsis whitespace-nowrap">
                 {campaign?.campaignTitle}
-              </h2>
-              <p className="mb-4 overflow-hidden text-ellipsis whitespace-nowrap">
-                {campaign?.description}
-              </p>
+              </h1>
+              <div className="flex items-center gap-1">
+                <BiCategory /> <span>{campaign?.campaignType}</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <FaDonate /> <span>{campaign?.minimumDonation}</span>
+              </div>
             </div>
-          ))}
-        </div>
-      </Fade>
+          </div>
+        ))}
+      </div>
     </div>
   ) : (
     <h1 className="text-xl font-bold text-primary">
