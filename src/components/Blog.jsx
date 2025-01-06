@@ -1,5 +1,6 @@
 import React from "react";
 import { Fade } from "react-awesome-reveal";
+import Heading from "./Heading";
 
 const Blog = () => {
   const posts = [
@@ -9,8 +10,7 @@ const Blog = () => {
       author: "Jane Doe",
       date: "November 10, 2024",
       excerpt:
-        "Crowdfunding has evolved from a niche practice to a mainstream method for funding various types of projects...",
-      link: "#",
+        "Crowdfunding has evolved from a niche practice to a mainstream method for funding various types of projects.",
     },
     {
       photo: "/logo-2.png",
@@ -18,8 +18,7 @@ const Blog = () => {
       author: "John Smith",
       date: "November 5, 2024",
       excerpt:
-        "Whether you’re a first-time creator or a seasoned entrepreneur, these tips will help you run a successful crowdfunding campaign...",
-      link: "#",
+        "Whether you’re a first-time creator or a seasoned entrepreneur, these tips will help you run a successful crowdfunding campaign.",
     },
     {
       photo: "/logo-3.png",
@@ -27,21 +26,18 @@ const Blog = () => {
       author: "Alice Johnson",
       date: "October 30, 2024",
       excerpt:
-        "Blockchain technology is making waves in the crowdfunding industry. Let’s explore the potential of combining these two forces...",
-      link: "#",
+        "Blockchain technology is making waves in the crowdfunding industry. Let’s explore the potential of combining these two forces.",
     },
   ];
   return (
     <div>
-      <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-primary mb-4 md:mb-6 lg:mb-8">
-        Blogs
-      </h2>
+      <Heading title="Blogs" />
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {posts.map((post, index) => (
           <div
             key={index}
-            className="card w-full bg-base-100 shadow-xl hover:shadow-2xl transition-all dark:bg-sky-300 dark:text-black"
+            className="card w-full bg-background border border-primary"
           >
             <Fade direction="top-left">
               <figure className="px-4 pt-4">
@@ -52,17 +48,16 @@ const Blog = () => {
                 />
               </figure>
               <div className="card-body p-6">
-                <h3 className="text-2xl font-semibold">{post.title}</h3>
-                <p className="text-sm text-gray-500 mt-2">
+                <h3 className="text-2xl text-text font-semibold">
+                  {post.title}
+                </h3>
+                <p className="text-sm text-text mt-2">
                   <span className="font-semibold">By</span> {post.author} |{" "}
                   <span>{post.date}</span>
                 </p>
-                <p className="mt-4 text-gray-700">{post.excerpt}</p>
-                <div className="card-actions justify-end mt-4">
-                  <a href={post.link} className="btn btn-primary">
-                    Read More
-                  </a>
-                </div>
+                <p className="mt-4 text-text text-justify opacity-50">
+                  {post.excerpt}
+                </p>
               </div>
             </Fade>
           </div>
