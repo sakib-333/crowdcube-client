@@ -9,6 +9,7 @@ export default {
         primary: "var(--primary)",
         secondary: "var(--secondary)",
         accent: "var(--accent)",
+        footer: "var(--footer)",
       },
     },
   },

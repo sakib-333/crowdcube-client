@@ -1,10 +1,11 @@
 import React from "react";
-import { FaFacebook, FaGithub, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
-    <div className="bg-slate-300 dark:bg-black">
-      <footer className="footer text-base-content p-10 max-w-5xl mx-auto">
+    <div className="bg-footer">
+      <footer className="footer text-text p-10 max-w-5xl mx-auto">
         <nav>
           <h6 className="footer-title">Contact information</h6>
           <div>
@@ -37,23 +38,32 @@ const Footer = () => {
         <nav>
           <h6 className="footer-title">Social</h6>
           <div className="grid grid-flow-col gap-4">
-            <a href="#" className="hover:opacity-50">
+            <a
+              href="https://www.facebook.com/sakib071"
+              target="_blank"
+              className="hover:opacity-50"
+            >
               <FaFacebook />
             </a>
-            <a href="#" className="hover:opacity-50">
+            <a
+              href="https://github.com/sakib-333"
+              target="_blank"
+              className="hover:opacity-50"
+            >
               <FaGithub />
             </a>
-            <a href="#" className="hover:opacity-50">
-              <FaTwitter />
-            </a>
-            <a href="#" className="hover:opacity-50">
-              <FaInstagram />
+            <a
+              href="https://x.com/sakib_333x"
+              target="_blank"
+              className="hover:opacity-50"
+            >
+              <FaXTwitter />
             </a>
           </div>
         </nav>
       </footer>
       <div className="divider"></div>
-      <p className="text-center pb-4">
+      <p className="text-center text-text pb-4">
         Copyright &copy; {new Date().getFullYear()} - All right reserved
       </p>
     </div>

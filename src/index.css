@@ -6,6 +6,7 @@
     --primary: #299fd6;
     --secondary: #90a8ea;
     --accent: #5c5ce0;
+    --footer: #86cef4;
   }
   .dark {
     --text: #eaf7fb;
@@ -14,6 +15,7 @@
     --primary: #299fd6;
     --secondary: #152d6f;
     --accent: #1f1fa3;
+    --footer: #2f2546;
   }
 }
 
