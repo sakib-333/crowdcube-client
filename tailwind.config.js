@@ -8,6 +8,7 @@ export default {
         background: "var(--background)",
         primary: "var(--primary)",
         secondary: "var(--secondary)",
+        tertiary: "var(--tertiary)",
         accent: "var(--accent)",
         footer: "var(--footer)",
       },
