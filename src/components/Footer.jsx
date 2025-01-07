@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFacebook, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
@@ -39,13 +39,6 @@ const Footer = () => {
           <h6 className="footer-title">Social</h6>
           <div className="grid grid-flow-col gap-4">
             <a
-              href="https://www.facebook.com/sakib071"
-              target="_blank"
-              className="hover:opacity-50"
-            >
-              <FaFacebook />
-            </a>
-            <a
               href="https://github.com/sakib-333"
               target="_blank"
               className="hover:opacity-50"
@@ -53,11 +46,25 @@ const Footer = () => {
               <FaGithub />
             </a>
             <a
+              href="www.linkedin.com/in/r-sakib"
+              target="_blank"
+              className="hover:opacity-50"
+            >
+              <FaLinkedin />
+            </a>
+            <a
               href="https://x.com/sakib_333x"
               target="_blank"
               className="hover:opacity-50"
             >
               <FaXTwitter />
+            </a>
+            <a
+              href="https://www.facebook.com/sakib071"
+              target="_blank"
+              className="hover:opacity-50"
+            >
+              <FaFacebook />
             </a>
           </div>
         </nav>
