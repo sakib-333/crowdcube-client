@@ -11,6 +11,7 @@ import { FaCheck } from "react-icons/fa6";
 import { FaDonate, FaEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import { BiCategory } from "react-icons/bi";
+import * as motion from "motion/react-client";
 
 const MyCampaignPage = () => {
   const { user, isLoading, setIsLoading } = useContext(AuthContext);
@@ -71,7 +72,11 @@ const MyCampaignPage = () => {
       {viewMethod === "card" && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {myCampaigns.map((campaign) => (
-            <div key={campaign._id} className="max-w-52 w-full mx-auto">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              key={campaign._id}
+              className="max-w-52 w-full mx-auto"
+            >
               <img
                 className="w-full h-24 bg-white"
                 src={campaign?.imageURL}
@@ -104,7 +109,7 @@ const MyCampaignPage = () => {
                   </button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       )}

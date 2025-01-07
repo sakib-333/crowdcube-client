@@ -3,11 +3,15 @@ import { Fade } from "react-awesome-reveal";
 import { BiCategory } from "react-icons/bi";
 import { FaDonate } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import * as motion from "motion/react-client";
 
 const CampaignCard = ({ campaign }) => {
   return (
     <Fade direction="down">
-      <div className="max-w-52 w-full mx-auto">
+      <motion.div
+        className="max-w-52 w-full mx-auto"
+        whileHover={{ scale: 1.05 }}
+      >
         <img
           className="w-full h-24 bg-white"
           src={campaign?.imageURL}
@@ -30,7 +34,7 @@ const CampaignCard = ({ campaign }) => {
             See More
           </Link>
         </div>
-      </div>
+      </motion.div>
     </Fade>
   );
 };

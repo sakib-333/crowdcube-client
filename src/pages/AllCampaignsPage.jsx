@@ -43,7 +43,7 @@ const AllCampaignsPage = () => {
   ) : (
     <>
       <button
-        className="btn-primary flex items-center gap-1 mb-4"
+        className="btn-primary flex items-center gap-1 my-4"
         onClick={handleSortCampaigns}
       >
         <FaSortAmountUpAlt />

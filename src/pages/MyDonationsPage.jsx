@@ -3,11 +3,10 @@ import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 import LoadingComponent from "../components/LoadingComponent";
 import { Typewriter } from "react-simple-typewriter";
-import { Fade } from "react-awesome-reveal";
 import Heading from "../components/Heading";
-import CampaignCard from "../components/CampaignCard";
 import { BiCategory } from "react-icons/bi";
 import { FaDonate } from "react-icons/fa";
+import * as motion from "motion/react-client";
 
 const MyDonationsPage = () => {
   const { user, isLoading, setIsLoading } = useContext(AuthContext);
@@ -41,7 +40,11 @@ const MyDonationsPage = () => {
       <Heading title="My Donations" />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
         {myDonations.map((campaign) => (
-          <div key={campaign._id} className="max-w-52 w-full mx-auto">
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            key={campaign._id}
+            className="max-w-52 w-full mx-auto"
+          >
             <img
               className="w-full h-24 bg-white"
               src={campaign?.imageURL}
@@ -58,7 +61,7 @@ const MyDonationsPage = () => {
                 <FaDonate /> <span>{campaign?.minimumDonation}</span>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

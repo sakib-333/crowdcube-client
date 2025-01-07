@@ -21,7 +21,7 @@ const HomeLayout = () => {
       <div className="fixed top-0 w-full z-50 bg-slate-400 bg-opacity-60">
         <Navbar />
       </div>
-      <div className="min-h-screen p-4">
+      <div className="min-h-screen p-4 pt-16">
         {loading ? (
           <div className="flex justify-center mt-16 lg:mt-20">
             <span className="loading loading-spinner text-primary w-16"></span>
