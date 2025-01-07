@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import logoLight from "/logoLight.png";
+import logoDark from "/logoDark.png";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Footer = () => {
+  const { isDark } = useContext(AuthContext);
   return (
     <div className="bg-footer">
-      <footer className="footer text-text p-10 max-w-5xl mx-auto">
+      <footer className="footer place-items-center text-text p-10 max-w-5xl mx-auto">
+        <nav>
+          <img
+            className="w-16 h-16 rounded-full"
+            src={isDark ? logoDark : logoLight}
+            alt="logo"
+          />
+        </nav>
         <nav>
           <h6 className="footer-title">Contact information</h6>
           <div>
@@ -25,14 +36,14 @@ const Footer = () => {
         </nav>
         <nav>
           <h6 className="footer-title">About us</h6>
-          <a className="link link-hover" href="#">
+          <a className="link link-hover" href="#blogs">
             Blogs
           </a>
-          <a className="link link-hover" href="#">
-            Important links
+          <a className="link link-hover" href="#faq">
+            FAQ
           </a>
-          <a className="link link-hover" href="#">
-            Jobs
+          <a className="link link-hover" href="#support-us">
+            Support us
           </a>
         </nav>
         <nav>

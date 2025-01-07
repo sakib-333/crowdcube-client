@@ -3,9 +3,11 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { handleSignoutUser } from "../utilities/handleSignoutUser";
 import { Tooltip } from "react-tooltip";
+import logoLight from "/logoLight.png";
+import logoDark from "/logoDark.png";
 
 const Navbar = () => {
-  const { user, signoutUser } = useContext(AuthContext);
+  const { isDark, user, signoutUser } = useContext(AuthContext);
 
   const navItems = (
     <>
@@ -57,7 +59,12 @@ const Navbar = () => {
             {navItems}
           </ul>
         </div>
-        <div className="flex items-center">
+        <div className="flex items-center gap-1">
+          <img
+            className="w-12 h-12 rounded-full"
+            src={isDark ? logoDark : logoLight}
+            alt="logo"
+          />
           <h1 className="text-xl text-accent md:text-2xl lg:text-3xl font-bold">
             Crowdcube
           </h1>

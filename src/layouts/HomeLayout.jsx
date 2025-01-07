@@ -17,11 +17,13 @@ const HomeLayout = () => {
   }, [isDark]);
 
   return (
-    <div className="max-w-screen-2xl mx-auto">
-      <Navbar />
+    <div className="max-w-screen-2xl relative mx-auto">
+      <div className="fixed top-0 w-full z-50 bg-slate-400 bg-opacity-60">
+        <Navbar />
+      </div>
       <div className="min-h-screen p-4">
         {loading ? (
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-16 lg:mt-20">
             <span className="loading loading-spinner text-primary w-16"></span>
           </div>
         ) : (

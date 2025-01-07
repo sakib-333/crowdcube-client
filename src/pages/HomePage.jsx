@@ -3,6 +3,7 @@ import Slider from "../components/Slider";
 import RunningCampaigns from "../components/RunningCampaigns";
 import FAQ from "../components/FAQ";
 import Blog from "../components/Blog";
+import SupportUs from "../components/SupportUs";
 
 const HomePage = () => {
   useEffect(() => {
@@ -14,6 +15,7 @@ const HomePage = () => {
       <Slider />
       <RunningCampaigns />
       <Blog />
+      <SupportUs />
       <FAQ />
     </div>
   );

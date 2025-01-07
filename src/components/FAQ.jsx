@@ -4,7 +4,7 @@ import Heading from "./Heading";
 
 const FAQ = () => {
   return (
-    <div className="space-y-3">
+    <div className="space-y-3" id="faq">
       <Heading title="Frequently Asked Questions" />
       <Fade direction="down">
         <div className="collapse collapse-arrow border border-text">
