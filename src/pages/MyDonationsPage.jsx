@@ -47,7 +47,7 @@ const MyDonationsPage = () => {
               src={campaign?.imageURL}
               alt="Thumbnail"
             />
-            <div className="px-2 pb-2 flex flex-col gap-1 bg-tertiary">
+            <div className="px-2 pb-2 flex text-text flex-col gap-1 bg-tertiary">
               <h1 className="overflow-hidden text-ellipsis whitespace-nowrap">
                 {campaign?.campaignTitle}
               </h1>

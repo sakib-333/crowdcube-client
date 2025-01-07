@@ -45,16 +45,26 @@ const MyCampaignPage = () => {
       <div className="my-4 flex justify-end">
         <div className="join">
           <button
-            className="btn-primary rounded-tr-none rounded-br-none flex items-center gap-1"
+            className={`btn-primary w-12 rounded-tr-none rounded-br-none border border-x border-text ${
+              viewMethod === "table" ? "bg-background" : ""
+            } flex items-center gap-1`}
             onClick={() => setViewMethod("card")}
           >
-            {viewMethod === "card" && <FaCheck />} <IoGridSharp />
+            <FaCheck
+              className={`${viewMethod === "card" ? "block" : "hidden"}`}
+            />
+            <IoGridSharp />
           </button>
           <button
-            className="btn-primary rounded-tl-none rounded-bl-none flex items-center gap-1"
+            className={`btn-primary w-12 rounded-tl-none border border-x border-text ${
+              viewMethod === "card" ? "bg-background" : ""
+            } rounded-bl-none flex items-center gap-1`}
             onClick={() => setViewMethod("table")}
           >
-            {viewMethod === "table" && <FaCheck />} <CiViewTable />
+            <FaCheck
+              className={`${viewMethod === "table" ? "block" : "hidden"}`}
+            />
+            <CiViewTable />
           </button>
         </div>
       </div>
@@ -67,7 +77,7 @@ const MyCampaignPage = () => {
                 src={campaign?.imageURL}
                 alt="Thumbnail"
               />
-              <div className="px-2 pb-2 flex flex-col gap-1 bg-tertiary">
+              <div className="px-2 pb-2 text-text flex flex-col gap-1 bg-tertiary">
                 <h1 className="overflow-hidden text-ellipsis whitespace-nowrap">
                   {campaign?.campaignTitle}
                 </h1>

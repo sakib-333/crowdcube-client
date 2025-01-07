@@ -3,6 +3,7 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { handleUpdateCampaign } from "../utilities/handleUpdateCampaign";
 import { AuthContext } from "../provider/AuthProvider";
+import GobackBtn from "../components/GobackBtn";
 
 const UpdateCampaignPage = () => {
   const { user } = useContext(AuthContext);
@@ -19,23 +20,14 @@ const UpdateCampaignPage = () => {
     document.title = "Crowdcube | Update Campaign";
   }, []);
 
-  const handleGoback = () => {
-    navigate(-1);
-  };
-
   return (
     <div className="w-5/6 mx-auto my-4">
-      <button
-        className="btn bg-white text-primary border-0 mb-8"
-        onClick={handleGoback}
-      >
-        <IoMdArrowRoundBack /> <span>Back</span>
-      </button>
-      <div className="bg-[#F4F3F0] p-4 md:p-8 lg:p-12 space-y-4 rounded-md">
+      <GobackBtn prevRoute="/myCampaign" />
+      <div className="bg-background text-text border border-text p-4 md:p-8 lg:p-12 space-y-4 rounded-md">
         <h1 className="text-2xl md:text-3xl lg:text-4xl text-primary font-bold text-center">
           Update Campaign
         </h1>
-        <p className="max-w-[880px] text-center mx-auto font-sans">
+        <p className="max-w-[800px] opacity-50 text-center mx-auto">
           Upadte your campaign to share your project, set goals, and inspire
           support. Customize details to attract donors and bring your vision to
           life.
@@ -46,14 +38,14 @@ const UpdateCampaignPage = () => {
           onSubmit={(e) => handleUpdateCampaign(e, campaign?._id, navigate)}
         >
           {/* Image URL start */}
-          <label className="form-control w-full">
+          <label className="form-control text-text w-full">
             <div className="label">
-              <span className="label-text font-bold">Image URL</span>
+              <span className="label-text text-text font-bold">Image URL</span>
             </div>
             <input
               type="text"
               name="imageURL"
-              className="input input-bordered w-full"
+              className="input input-bordered bg-tertiary w-full"
               placeholder="Image URL"
               required
               defaultValue={campaign?.imageURL}
@@ -62,14 +54,16 @@ const UpdateCampaignPage = () => {
           {/* Image URL end */}
 
           {/* Campaign title start */}
-          <label className="form-control w-full">
+          <label className="form-control text-text w-full">
             <div className="label">
-              <span className="label-text font-bold">Campaign title</span>
+              <span className="label-text text-text font-bold">
+                Campaign title
+              </span>
             </div>
             <input
               type="text"
               placeholder="Campaign title"
-              className="input input-bordered w-full"
+              className="input input-bordered bg-tertiary w-full"
               name="campaignTitle"
               required
               defaultValue={campaign?.campaignTitle}
@@ -78,12 +72,14 @@ const UpdateCampaignPage = () => {
           {/* Campaign title end */}
 
           {/* Campaign type start */}
-          <label className="form-control w-full">
+          <label className="form-control text-text w-full">
             <div className="label">
-              <span className="label-text font-bold">Campaign type</span>
+              <span className="label-text text-text font-bold">
+                Campaign type
+              </span>
             </div>
             <select
-              className="select select-bordered"
+              className="select select-bordered bg-tertiary"
               name="campaignType"
               required
             >
@@ -98,12 +94,14 @@ const UpdateCampaignPage = () => {
           {/* Campaign type end */}
 
           {/* Description start */}
-          <label className="form-control">
+          <label className="form-control text-text">
             <div className="label">
-              <span className="label-text font-bold">Description</span>
+              <span className="label-text text-text font-bold">
+                Description
+              </span>
             </div>
             <textarea
-              className="textarea textarea-bordered"
+              className="textarea textarea-bordered bg-tertiary"
               placeholder="Description of the campaign"
               name="description"
               rows={1}
@@ -113,15 +111,17 @@ const UpdateCampaignPage = () => {
           {/* Description end */}
 
           {/* Minimum donation start */}
-          <label className="form-control w-full">
+          <label className="form-control text-text w-full">
             <div className="label">
-              <span className="label-text font-bold">Minimum donation</span>
+              <span className="label-text font-bold text-text">
+                Minimum donation
+              </span>
             </div>
             <input
               type="number"
               placeholder="Minimum donation"
               name="minimumDonation"
-              className="input input-bordered w-full"
+              className="input input-bordered w-full bg-tertiary"
               required
               defaultValue={campaign?.minimumDonation}
             />
@@ -129,14 +129,14 @@ const UpdateCampaignPage = () => {
           {/* Minimum donation end */}
 
           {/* Deadline start */}
-          <label className="form-control w-full">
+          <label className="form-control w-full text-text">
             <div className="label">
-              <span className="label-text font-bold">Deadline</span>
+              <span className="label-text font-bold text-text">Deadline</span>
             </div>
             <input
               type="date"
               name="deadline"
-              className="input input-bordered w-full"
+              className="input input-bordered w-full bg-tertiary"
               required
               defaultValue={campaign?.deadline}
             />
@@ -144,38 +144,38 @@ const UpdateCampaignPage = () => {
           {/* Deadline end */}
 
           {/* User Email start */}
-          <label className="form-control w-full">
+          <label className="form-control w-full text-text">
             <div className="label">
-              <span className="label-text font-bold">User Email</span>
+              <span className="label-text font-bold text-text">User Email</span>
             </div>
             <input
               type="email"
               defaultValue={campaign?.userEmail}
               readOnly
               name="userEmail"
-              className="input input-bordered w-full"
+              className="input input-bordered w-full bg-tertiary"
               required
             />
           </label>
           {/* User Email end */}
 
           {/* User Name start */}
-          <label className="form-control w-full">
+          <label className="form-control w-full text-text">
             <div className="label">
-              <span className="label-text font-bold">User Name</span>
+              <span className="label-text font-bold text-text">User Name</span>
             </div>
             <input
               type="text"
               name="userName"
               defaultValue={campaign?.userName}
               readOnly
-              className="input input-bordered w-full"
+              className="input input-bordered w-full bg-tertiary"
               required
             />
           </label>
           {/* User Name end */}
 
-          <button type="submit" className="btn btn-primary lg:col-span-2">
+          <button type="submit" className="btn-primary lg:col-span-2">
             Update
           </button>
         </form>
