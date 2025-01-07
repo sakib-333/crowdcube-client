@@ -13,7 +13,7 @@ const CampaignCard = ({ campaign }) => {
           src={campaign?.imageURL}
           alt="Thumbnail"
         />
-        <div className="px-2 pb-2 flex flex-col gap-1 bg-tertiary">
+        <div className="px-2 pb-2 text-text flex flex-col gap-1 bg-tertiary">
           <h1 className="overflow-hidden text-ellipsis whitespace-nowrap">
             {campaign?.campaignTitle}
           </h1>
@@ -25,7 +25,7 @@ const CampaignCard = ({ campaign }) => {
           </div>
           <Link
             to={`/campaign/${campaign._id}`}
-            className="btn-primary text-center uppercase"
+            className="btn-primary text-center uppercase bg-tertiary border border-text"
           >
             See More
           </Link>
