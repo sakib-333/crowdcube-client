@@ -24,12 +24,12 @@ A crowdfunding website is a platform where people can raise money for different 
 
 - One user can see/donate his campaigns as well as other's campaigns but can only update, delete his campaign.
 
-- Toggle light and dark mood for **Home** page.
+- Toggle light and dark mood.
 
 ## Live links
 
-1. Live link: [visit](https://sakib-333-ph-b10-a10.netlify.app/)
-   
+1. Live link: [visit](https://ph-b10-a10.web.app/)
+
 ## Server repo link
 
 1. Github repo: [visit](https://github.com/sakib-333/ph-b10-a10-server)
