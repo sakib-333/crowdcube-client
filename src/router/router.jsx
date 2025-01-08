@@ -66,8 +66,8 @@ export const router = createBrowserRouter([
             <UpdateCampaignPage />
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(`https://ph-b10-a10-server.vercel.app/campaign/${params.id}`),
+        // loader: ({ params }) =>
+        //   fetch(`https://ph-b10-a10-server.vercel.app/campaign/${params.id}`),
       },
       {
         path: "/campaign/:id",
@@ -76,8 +76,8 @@ export const router = createBrowserRouter([
             <CampaignDetailsPage />
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          fetch(`https://ph-b10-a10-server.vercel.app/campaign/${params.id}`),
+        // loader: ({ params }) =>
+        //   fetch(`https://ph-b10-a10-server.vercel.app/campaign/${params.id}`),
       },
     ],
   },

@@ -3,15 +3,16 @@ import Marquee from "react-fast-marquee";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import Heading from "./Heading";
+import useAxios from "../hook/useAxios";
 
 const RunningCampaigns = () => {
   const [runningCampaigns, setRunningCampaigns] = useState([]);
+  const axiosInstance = useAxios();
 
   useEffect(() => {
-    fetch("https://ph-b10-a10-server.vercel.app/currently-running-campaigns")
-      .then((res) => res.json())
-      .then((data) => setRunningCampaigns(data))
-      .catch(() => toast.error("Something went wrong."));
+    axiosInstance.get("/currently-running-campaigns").then((res) => {
+      setRunningCampaigns(res.data);
+    });
   }, []);
 
   return (

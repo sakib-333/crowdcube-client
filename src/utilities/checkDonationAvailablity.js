@@ -14,11 +14,12 @@ export const checkDonationAvailablity = (deadline, campaign, donorInfo) => {
   } else {
     const { _id: campaign_id, ...campaignExceptId } = campaign;
 
-    fetch("https://ph-b10-a10-server.vercel.app/myDonations", {
+    fetch("https://ph-b10-a10-server.vercel.app/addMyDonations", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify({ ...donorInfo, ...campaignExceptId, campaign_id }),
     })
       .then((res) => res.json())

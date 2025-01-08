@@ -1,6 +1,6 @@
 import Swal from "sweetalert2";
 
-export const handleUpdateCampaign = (e, id, navigate) => {
+export const handleUpdateCampaign = (e, id, navigate, user) => {
   e.preventDefault();
   const form = e.target;
 
@@ -24,12 +24,15 @@ export const handleUpdateCampaign = (e, id, navigate) => {
     userName,
   };
 
+  const data = { updatedCampaign, email: user.email };
+
   fetch(`https://ph-b10-a10-server.vercel.app/updateCampaign/${id}`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(updatedCampaign),
+    credentials: "include",
+    body: JSON.stringify(data),
   })
     .then((res) => res.json())
     .then((data) => {

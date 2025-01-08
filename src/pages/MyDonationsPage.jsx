@@ -7,26 +7,21 @@ import Heading from "../components/Heading";
 import { BiCategory } from "react-icons/bi";
 import { FaDonate } from "react-icons/fa";
 import * as motion from "motion/react-client";
+import useAxios from "../hook/useAxios";
 
 const MyDonationsPage = () => {
   const { user, isLoading, setIsLoading } = useContext(AuthContext);
   const [myDonations, setMyDonations] = useState([]);
+  const axiosInstance = useAxios();
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`https://ph-b10-a10-server.vercel.app/myDonations/${user?.email}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({}),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setIsLoading(false);
-        setMyDonations(data);
+    axiosInstance
+      .post(`/getMyDonations`, { email: user?.email })
+      .then((res) => {
+        setMyDonations(res.data);
       })
-      .catch(() => toast.error("Something went wrong."));
+      .finally(() => setIsLoading(false));
   }, []);
 
   useEffect(() => {

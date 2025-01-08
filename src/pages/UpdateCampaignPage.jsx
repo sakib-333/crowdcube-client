@@ -1,26 +1,35 @@
-import React, { useContext, useEffect } from "react";
-import { IoMdArrowRoundBack } from "react-icons/io";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { handleUpdateCampaign } from "../utilities/handleUpdateCampaign";
 import { AuthContext } from "../provider/AuthProvider";
 import GobackBtn from "../components/GobackBtn";
+import useAxios from "../hook/useAxios";
+import LoadingComponent from "../components/LoadingComponent";
 
 const UpdateCampaignPage = () => {
-  const { user } = useContext(AuthContext);
+  const [campaign, setCampaign] = useState(null);
+  const { user, isLoading, setIsLoading } = useContext(AuthContext);
   const navigate = useNavigate();
-  const campaign = useLoaderData();
+  const axiosInstance = useAxios();
+  const params = useParams();
 
   useEffect(() => {
-    if (campaign.userEmail !== user?.email) {
-      navigate("/allCampaign");
-    }
+    setIsLoading(true);
+    axiosInstance
+      .get(`/campaign/${params.id}`, { email: user?.email })
+      .then((res) => {
+        setCampaign(res.data);
+      })
+      .finally(() => setIsLoading(false));
   }, []);
 
   useEffect(() => {
     document.title = "Crowdcube | Update Campaign";
   }, []);
 
-  return (
+  return isLoading ? (
+    <LoadingComponent />
+  ) : (
     <div className="w-5/6 mx-auto my-4">
       <GobackBtn prevRoute="/myCampaign" />
       <div className="bg-background text-text border border-text p-4 md:p-8 lg:p-12 space-y-4 rounded-md">
@@ -35,7 +44,9 @@ const UpdateCampaignPage = () => {
 
         <form
           className="w-full grid lg:grid-cols-2 gap-4 items-center"
-          onSubmit={(e) => handleUpdateCampaign(e, campaign?._id, navigate)}
+          onSubmit={(e) =>
+            handleUpdateCampaign(e, campaign?._id, navigate, user)
+          }
         >
           {/* Image URL start */}
           <label className="form-control text-text w-full">
@@ -79,6 +90,7 @@ const UpdateCampaignPage = () => {
               </span>
             </div>
             <select
+              defaultValue={campaign?.campaignType}
               className="select select-bordered bg-tertiary"
               name="campaignType"
               required
@@ -118,7 +130,7 @@ const UpdateCampaignPage = () => {
               </span>
             </div>
             <input
-              type="number"
+              type="text"
               placeholder="Minimum donation"
               name="minimumDonation"
               className="input input-bordered w-full bg-tertiary"
@@ -175,7 +187,7 @@ const UpdateCampaignPage = () => {
           </label>
           {/* User Name end */}
 
-          <button type="submit" className="btn-primary lg:col-span-2">
+          <button type="submit" className="btn btn-primary lg:col-span-2">
             Update
           </button>
         </form>

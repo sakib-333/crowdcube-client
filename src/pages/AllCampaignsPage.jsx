@@ -5,37 +5,36 @@ import { AuthContext } from "../provider/AuthProvider";
 import LoadingComponent from "../components/LoadingComponent";
 import { FaSortAmountUpAlt } from "react-icons/fa";
 import CampaignCard from "../components/CampaignCard";
+import useAxios from "../hook/useAxios";
 
 const AllCampaignsPage = () => {
   const { isLoading, setIsLoading } = useContext(AuthContext);
   const [allCampaigns, setAllCampaigns] = useState([]);
+  const axiosInstance = useAxios();
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("https://ph-b10-a10-server.vercel.app/allCampaign")
-      .then((res) => res.json())
-      .then((data) => {
-        setIsLoading(() => false);
-        setAllCampaigns(data);
+    axiosInstance
+      .get("/allCampaign")
+      .then((res) => {
+        setAllCampaigns(() => res.data);
       })
-      .catch(() => {
-        toast.error("Something went wrong.");
-      });
+      .finally(() => setIsLoading(false));
   }, []);
 
   useEffect(() => {
     document.title = "Crowdcube | All Campaigns";
   }, []);
 
+
   const handleSortCampaigns = () => {
     setIsLoading(true);
-    fetch("https://ph-b10-a10-server.vercel.app/sort-campaigns")
-      .then((res) => res.json())
-      .then((data) => {
-        setIsLoading(() => false);
-        setAllCampaigns(() => data);
+    axiosInstance
+      .get("/sort-campaigns")
+      .then((res) => {
+        setAllCampaigns(() => res.data);
       })
-      .catch(() => toast.error("Something went wrong."));
+      .finally(() => setIsLoading(false));
   };
 
   return isLoading ? (

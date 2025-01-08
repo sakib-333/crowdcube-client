@@ -1,6 +1,6 @@
 import Swal from "sweetalert2";
 
-export const handleDeleteCampaign = (id, setMyCampaigns) => {
+export const handleDeleteCampaign = (id, setMyCampaigns, user) => {
   Swal.fire({
     title: "Are you sure?",
     text: "You won't be able to revert this!",
@@ -16,7 +16,8 @@ export const handleDeleteCampaign = (id, setMyCampaigns) => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({}),
+        credentials: "include",
+        body: JSON.stringify({ email: user?.email }),
       })
         .then((res) => res.json())
         .then((data) => {

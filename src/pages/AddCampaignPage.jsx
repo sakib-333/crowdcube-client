@@ -1,9 +1,6 @@
 import React, { useContext, useEffect } from "react";
-import { IoMdArrowRoundBack } from "react-icons/io";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { handleAddNewCampaign } from "../utilities/handleAddNewCampaign";
-import GobackBtn from "../components/GobackBtn";
 
 const AddCampaignPage = () => {
   const { user } = useContext(AuthContext);
@@ -26,7 +23,7 @@ const AddCampaignPage = () => {
 
         <form
           className="w-full grid lg:grid-cols-2 gap-4 items-center"
-          onSubmit={handleAddNewCampaign}
+          onSubmit={(e) => handleAddNewCampaign(e, user)}
         >
           {/* Image URL start */}
           <label className="form-control w-full">
@@ -106,7 +103,7 @@ const AddCampaignPage = () => {
               </span>
             </div>
             <input
-              type="number"
+              type="text"
               placeholder="Minimum donation"
               name="minimumDonation"
               className="input input-bordered bg-tertiary w-full"
@@ -161,7 +158,7 @@ const AddCampaignPage = () => {
           </label>
           {/* User Name end */}
 
-          <button type="submit" className="btn-primary lg:col-span-2">
+          <button type="submit" className="btn btn-primary lg:col-span-2">
             Add
           </button>
         </form>

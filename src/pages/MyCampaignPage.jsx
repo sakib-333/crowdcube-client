@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
-import { toast } from "react-toastify";
 import { handleDeleteCampaign } from "../utilities/handleDeleteCampaign";
 import LoadingComponent from "../components/LoadingComponent";
 import { Typewriter } from "react-simple-typewriter";
@@ -12,27 +11,22 @@ import { FaDonate, FaEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
 import { BiCategory } from "react-icons/bi";
 import * as motion from "motion/react-client";
+import useAxios from "../hook/useAxios";
 
 const MyCampaignPage = () => {
   const { user, isLoading, setIsLoading } = useContext(AuthContext);
   const [myCampaigns, setMyCampaigns] = useState([]);
   const [viewMethod, setViewMethod] = useState("card");
+  const axiosInstance = useAxios();
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`https://ph-b10-a10-server.vercel.app/myCampaign/`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email: user?.email }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setIsLoading(() => false);
-        setMyCampaigns(data);
+    axiosInstance
+      .post("/myCampaign", { email: user?.email })
+      .then((res) => {
+        setMyCampaigns(res.data);
       })
-      .catch(() => toast.error("Something went wrong!"));
+      .finally(() => setIsLoading(false));
   }, []);
 
   useEffect(() => {
@@ -102,7 +96,7 @@ const MyCampaignPage = () => {
                   <button
                     className="px-3 py-2 hover:bg-secondary rounded"
                     onClick={() =>
-                      handleDeleteCampaign(campaign?._id, setMyCampaigns)
+                      handleDeleteCampaign(campaign?._id, setMyCampaigns, user)
                     }
                   >
                     <MdDeleteForever />

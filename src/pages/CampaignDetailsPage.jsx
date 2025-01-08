@@ -1,19 +1,34 @@
-import React, { useContext, useEffect } from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { checkDonationAvailablity } from "../utilities/checkDonationAvailablity";
 import { AuthContext } from "../provider/AuthProvider";
 import GobackBtn from "../components/GobackBtn";
+import useAxios from "../hook/useAxios";
+import LoadingComponent from "../components/LoadingComponent";
 
 const CampaignDetailsPage = () => {
-  const { user } = useContext(AuthContext);
-  const navigate = useNavigate();
-  const campaign = useLoaderData();
+  const { user, isLoading, setIsLoading } = useContext(AuthContext);
+  const [campaign, setCampaign] = useState(null);
+  const axiosInstance = useAxios();
+  const params = useParams();
+
+  useEffect(() => {
+    setIsLoading(true);
+    axiosInstance
+      .get(`/campaign/${params.id}`)
+      .then((res) => {
+        setCampaign(res.data);
+      })
+      .finally(() => setIsLoading(false));
+  }, []);
 
   useEffect(() => {
     document.title = "Crowdcube | Campaign Details";
   }, []);
 
-  return (
+  return isLoading ? (
+    <LoadingComponent />
+  ) : (
     <div className="my-4 text-text">
       <GobackBtn prevRoute="/allCampaign" />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5  p-8 bg-background rounded-lg">
