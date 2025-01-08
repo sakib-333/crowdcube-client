@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { AuthContext } from "../provider/AuthProvider";
 import { FiMoon, FiSun } from "react-icons/fi";
+import LoadingComponent from "../components/LoadingComponent";
 
 const HomeLayout = () => {
   const { loading, isDark, setIsDark } = useContext(AuthContext);
@@ -23,9 +24,7 @@ const HomeLayout = () => {
       </div>
       <div className="min-h-screen p-4 pt-16">
         {loading ? (
-          <div className="flex justify-center mt-16 lg:mt-20">
-            <span className="loading loading-spinner text-primary w-16"></span>
-          </div>
+          <LoadingComponent />
         ) : (
           <>
             <Outlet />
